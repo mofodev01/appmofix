@@ -79,7 +79,7 @@ export class MyApp {
    /// this.showBanner();
     this.localisation();
     this.fetchuser();
-    //this.push_notification();
+    this.push_notification();
     this.fetch_message();
     this.network_space();
     // used for an example of ngFor and navigation   SeriesPage
