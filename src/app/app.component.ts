@@ -105,7 +105,7 @@ export class MyApp {
 
   push_notification(){
 
-    this.oneSignal.startInit('37bba855-e21d-4bff-a53b-594ac70dc73d', '686818001505');
+    this.oneSignal.startInit('2f695949-c542-408c-bea5-7b8221535304', '686818001505');
 
     this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
     
