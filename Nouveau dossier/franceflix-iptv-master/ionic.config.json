@@ -1,0 +1,9 @@
+{
+  "name": "iptv-franceflix",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "f6899fe7",
+  "id": "f6899fe7"
+}

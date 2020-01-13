@@ -1,0 +1,27 @@
+
+
+$toolbar-background: color($colors,joomla);
+ion-content (menu)(scss) >> background-color:color($colors,asphalt);
+
+card >>> midnight
+
+text >> light 
+
+$colors: (
+joomla:#1e3c72
+asphalt:#2a5298,
+dark-light:#1d3765,
+light:      #f4f4f4,
+midnight:#2a5298,
+
+danger:     #f53d3d,
+ peter:#3498db,
+
+
+
+
+mgrey-blue:rgb(127, 182, 202),
+    mgrey-blue2:rgb(116, 167, 185),
+
+
+);
