@@ -7,6 +7,8 @@ import { LoginPage } from '../login/login';
 
 import { Content } from 'ionic-angular';
 
+import { InfoPage } from '../info/info';
+
 import { DownloadPage } from '../download/download';
 import { AndroidAppPage } from '../android-app/android-app';
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
@@ -32,6 +34,10 @@ export class ProfilEnPage {
   @ViewChild("gateway") gateway;
 
   @ViewChild(Content) content: Content;
+
+  info(){
+    this.navCtrl.push(InfoPage)
+  }
 
   scrollTo() {
    

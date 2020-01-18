@@ -1,17 +1,7 @@
 
-
-com.franceflix.streaming
-version="1.1.0"
-
-Franceflix Tv 
-
-
-
-keystor:pass: MF-tv-keyff
-alias pass : mf@alias2017
-nomprenom:lakbir
-orgabisationnel:mfinc
-entreprise:none
+<plugin name="cordova-plugin-ionic-webview" spec="^1.1.19" />
+<plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
+<plugin name="cordova-plugin-console" spec="^1.1.0" />
 
 
 

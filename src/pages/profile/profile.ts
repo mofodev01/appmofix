@@ -7,6 +7,8 @@ import { LoginPage } from '../login/login';
 
 import { Content } from 'ionic-angular';
 
+import { InfoPage } from '../info/info';
+
 import { DownloadPage } from '../download/download';
 import { AndroidAppPage } from '../android-app/android-app';
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
@@ -37,6 +39,10 @@ export class ProfilePage {
    
    // this.content.scrollTo(0, 500, 200);
    this.content.scrollToBottom(1500);
+  }
+
+  info(){
+    this.navCtrl.push(InfoPage)
   }
 data:any;
 items_notif:any;
@@ -363,6 +369,7 @@ this.http.get('http://space.appmofix.com/api/setting.php')
 
 })
     }
+    
 
 
     logout(){

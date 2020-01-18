@@ -4,7 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LoginPage } from '../pages/login/login';
-import { ProfilePage } from '../pages/profile/profile';
+//import { ProfilePage } from '../pages/profile/profile';
+import { ProfilEnPage } from '../pages/profil-en/profil-en';
 import { Storage } from '@ionic/storage';
 
 import { LivePage } from '../pages/live/live';
@@ -16,7 +17,7 @@ import { KidMoviesPage } from '../pages/kid-movies/kid-movies';
 
 
 import { VodExYuPage } from '../pages/vod-ex-yu/vod-ex-yu';
-import { VodGamingPage } from '../pages/vod-gaming/vod-gaming'
+//import { VodGamingPage } from '../pages/vod-gaming/vod-gaming'
 
 import { VipPage } from '../pages/vip/vip'
 
@@ -79,7 +80,7 @@ export class MyApp {
    /// this.showBanner();
     this.localisation();
     this.fetchuser();
-    this.push_notification();
+    //this.push_notification();
     this.fetch_message();
     this.network_space();
     // used for an example of ngFor and navigation   SeriesPage
@@ -93,7 +94,7 @@ export class MyApp {
       subTitle: "There may be a problem in your Internet connection. Try Again !",
       buttons: [{
   
-      text: ("d'accord")
+      text: ("Okay")
       }]
       });
       alert.present();
@@ -127,7 +128,7 @@ export class MyApp {
   
   
     this.pages = [
-     { title: 'Home', component: ProfilePage,icon : "home" }
+     { title: 'Home', component: ProfilEnPage,icon : "home" }
      , { title: 'Live Tv', component: LivePage,icon : "desktop" }
      ,{ title: 'VOD Films', component: FilmsPage,icon : "film" }
  
@@ -247,7 +248,7 @@ export class MyApp {
       if(res == null){
         this.rootPage=LoginPage;
       }else{
-        this.rootPage=ProfilePage;
+        this.rootPage=ProfilEnPage;
       }
     });
   }

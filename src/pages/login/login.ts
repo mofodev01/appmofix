@@ -2,7 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams , AlertController,MenuController} from 'ionic-angular';
 
 import { RegisterPage } from '../register/register';
-import { ProfilePage } from '../profile/profile';
+//import { ProfilePage } from '../profile/profile'; 
+import { ProfilEnPage } from '../profil-en/profil-en';
 import { LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
@@ -148,8 +149,8 @@ signUp(){
        
         alert.present();*/
        this.storage.set("session_storage",this.username.value);
-       this.navCtrl.setRoot(ProfilePage);
-       // this.navCtrl.push(ProfilePage, data);
+       this.navCtrl.setRoot(ProfilEnPage);
+       // this.navCtrl.setRoot(ProfilePage);
     }else if(res=="Your Password is invalid")
     {
      let alert = this.alertCtrl.create({
