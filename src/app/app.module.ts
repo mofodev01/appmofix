@@ -80,7 +80,7 @@ import { PrivacyTermsPage } from '../pages/privacy-terms/privacy-terms';
 import { RecoveryPasswordPage } from '../pages/recovery-password/recovery-password';
 
 //import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+//import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { SafariViewController } from '@ionic-native/safari-view-controller';
 @NgModule({
@@ -195,7 +195,7 @@ DetailFreeLivePage ,
     EmailComposer ,
     OneSignal,
     Network,
-    InAppBrowser,
+   
     SafariViewController,
     //Braintree, 
     {provide: ErrorHandler, useClass: IonicErrorHandler},

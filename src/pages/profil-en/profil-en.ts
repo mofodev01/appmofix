@@ -13,7 +13,7 @@ import { DownloadPage } from '../download/download';
 import { AndroidAppPage } from '../android-app/android-app';
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
-import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
+//import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
 import { Clipboard } from '@ionic-native/clipboard';
 import { Toast } from '@ionic-native/toast';
 import { SafariViewController } from '@ionic-native/safari-view-controller';
@@ -61,7 +61,7 @@ public scrollAmount = 0;
     public platform: Platform ,
     private market: Market,
     private safariViewController: SafariViewController,
-    private inAppBrowser: InAppBrowser,
+   // private inAppBrowser: InAppBrowser,
     public http:  HttpClient,
     public navCtrl: NavController, public navParams: NavParams
     ,public loadingCtrl: LoadingController,public storage: Storage 
@@ -151,7 +151,7 @@ public scrollAmount = 0;
           );
   
         } else {
-          //-----------------
+          /*
           const options: InAppBrowserOptions = {
             zoom: 'yes',
             shouldPauseOnSuspend: 'yes',
@@ -160,7 +160,7 @@ public scrollAmount = 0;
           }
         
           this.inAppBrowser.create('http://appmofix.com/', '_system', options);
-          //-----------------
+          */
         }
       }
     );
