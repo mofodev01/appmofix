@@ -97,7 +97,7 @@
     <plugin name="cordova-plugin-x-toast" spec="^2.6.2" />
     <plugin name="cordova-plugin-market" spec="^1.2.0" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.1" />
-    <plugin name="cordova-plugin-console" spec="^1.1.0" />
+    
     <plugin name="com.paypal.cordova.mobilesdk" spec="^3.5.0" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
@@ -112,7 +112,7 @@
     <plugin name="cordova-plugin-email-composer" spec="0.9.2">
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
     </plugin>
-    <plugin name="cordova-plugin-crypto-file" spec="1.4.0" />
+    
     <plugin name="onesignal-cordova-plugin" spec="2.4.7" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
     <plugin name="cordova-plugin-safariviewcontroller" spec="^1.6.0" />
