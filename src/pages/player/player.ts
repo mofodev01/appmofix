@@ -74,7 +74,7 @@ export class PlayerPage {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE).then(() => {
         window.CLiteAV.startPlay({
           url: this.url,
-          playType: 0 ,//rtmp
+          playType: this.playType,
           playMode: 0 // 横屏模式
         }, (msgSuccess) => {
           console.log(msgSuccess);

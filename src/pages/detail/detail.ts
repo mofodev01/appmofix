@@ -17,7 +17,7 @@ import { Toast } from '@ionic-native/toast';
 })
 export class DetailPage {
  
-  playType: string = "RTMP";
+  playType: string;
   urls: string[] = [
     'rtmp://live.hkstv.hk.lxdns.com/live/hks',
     'http://fms.cntv.lxdns.com/live/flv/channel179.flv',
@@ -62,14 +62,26 @@ placeholder = "https://image.prntscr.com/image/40007xNYQNKMcy68bEChwQ.png";
       this.categorie = this.navParams.get('categorie');
       this.title = this.navParams.get('title'); 
       
+      this.playType = '0';
+      this.changeType(this.playType);
      
 
   }
 
-  goToPlayerPage(media) {
-    if (media) {
+   // 播放类型切换
+   changeType(type: string) {
+    this.url = this.urls[type];
+
+    if (type == '2') {
+      alert('iOS下精简版SDK暂不支持flv点播');
+    }
+  }
+
+  // 跳转播放
+  goToPlayerPage() {
+    if (this.url) {
       let modal = this.modal.create('player', {
-        url: media,
+        url: this.url,
         playType: this.playType
       });
       modal.present();
