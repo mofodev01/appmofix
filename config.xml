@@ -22,6 +22,7 @@
     <preference name="loadUrlTimeoutValue" value="60000" />
     <preference name="YouTubeDataApiKey" value="AIzaSyCSllJn0jW7kf9zIpWyPbORJ1WQ3yBGzXM" />
     <preference name="android-targetSdkVersion" value="28" />
+    <preference name="WKWebViewOnly" value="true" />
     <platform name="android">
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
             <application android:usesCleartextTraffic="true" />
@@ -47,7 +48,7 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
-        <preference name="WKWebViewOnly" value="true" />
+        
         <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
             <string>need location access to find things nearby</string>
         </edit-config>
