@@ -63,15 +63,24 @@ ion-title{
     .item {
         background-color: transparent;
         color: #fff;
-    }
-    
-   
-    
-   
-   
-  
-      
-  
-   
-   
-} 
+    } 
+}
+
+body.video-play {
+	background-color: transparent !important;
+
+	ion-app {
+		background-color: transparent !important;
+
+		.app-root {
+			opacity: 0;
+		}
+
+		.ion-page.show-page ~ .nav-decor {
+			background-color: transparent !important;
+		}
+		.content {
+			background-color: transparent !important;
+		}
+	}
+}

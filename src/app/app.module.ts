@@ -83,6 +83,7 @@ import { RecoveryPasswordPage } from '../pages/recovery-password/recovery-passwo
 //import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { SafariViewController } from '@ionic-native/safari-view-controller';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 @NgModule({
   declarations: [
     MyApp,
@@ -126,7 +127,17 @@ DetailFreeLivePage ,
     BrowserModule,
     HttpClientModule,
     
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '',
+      backButtonIcon: 'arrow-round-back',
+      iconMode: 'ios',
+      mode: 'ios',
+      modalEnter: 'modal-md-slide-in',
+      modalLeave: 'modal-md-slide-out',
+      tabsPlacement: 'bottom',
+      pageTransition: 'ios-transition',
+      tabsHideOnSubPages: true
+    }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -197,6 +208,7 @@ DetailFreeLivePage ,
     Network,
    
     SafariViewController,
+    ScreenOrientation,
     //Braintree, 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     JsonDataProvider,

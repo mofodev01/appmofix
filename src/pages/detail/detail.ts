@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams,Platform,LoadingController,MenuController} from 'ionic-angular';
+import { NavController, NavParams,Platform,LoadingController,MenuController , ModalController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { JsonDataProvider } from '../../providers/json-data/json-data';
 
@@ -17,7 +17,7 @@ import { Toast } from '@ionic-native/toast';
 })
 export class DetailPage {
  
-
+  playType: string;
   
   title:any;
   categorie:any;
@@ -41,7 +41,8 @@ placeholder = "https://image.prntscr.com/image/40007xNYQNKMcy68bEChwQ.png";
     ,public JsonDataProvider: JsonDataProvider, public loadingCtrl: LoadingController
     ,public storage: Storage,private database: DatabaseProvider,
     public platform: Platform,private toast: Toast,private streamingMedia: StreamingMedia
-    
+    ,
+    private modal: ModalController
     ,public menuCtrl:MenuController
     ) {
       this.menuCtrl.enable(true)
@@ -187,7 +188,15 @@ startVideo(url) {
              }, 2000);
          }
 
-
+  goToPlayerPage(urls: string) {
+    if (urls) {
+      let modal = this.modal.create('player', {
+        url: urls,
+        playType: this.playType
+      });
+      modal.present();
+    }
+  }
 
 
 }
