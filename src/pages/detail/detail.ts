@@ -18,15 +18,7 @@ declare var window: any;
 export class DetailPage {
  
   playType: string;
-  urls: string[] = [
-    'rtmp://live.hkstv.hk.lxdns.com/live/hks',
-    'http://fms.cntv.lxdns.com/live/flv/channel179.flv',
-    '',
-    'http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8',
-    'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
-    'rtmp://live.hkstv.hk.lxdns.com/live/hks',
-    'file://'
-  ];
+
   url: string;
   //----------------------------
 
@@ -62,26 +54,14 @@ placeholder = "https://image.prntscr.com/image/40007xNYQNKMcy68bEChwQ.png";
       this.categorie = this.navParams.get('categorie');
       this.title = this.navParams.get('title'); 
       
-      this.playType = '0';
-      this.changeType(this.playType);
-     
-
+      this.playType = '3';
+   
   }
 
-   // 播放类型切换
-   changeType(type: string) {
-    this.url = this.urls[type];
-
-    if (type == '2') {
-      alert('iOS下精简版SDK暂不支持flv点播');
-    }
-  }
-
-  // 跳转播放
-  goToPlayerPage() {
-    if (this.url) {
+  goToPlayerPage(media) {
+    if (media) {
       let modal = this.modal.create('player', {
-        url: this.url,
+        url: media,
         playType: this.playType
       });
       modal.present();

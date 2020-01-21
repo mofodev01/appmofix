@@ -34,31 +34,6 @@
 
     <ion-content padding>
 
-
-      <ion-list>
-        <ion-item>
-          <ion-label floating>播放类型</ion-label>
-          <ion-select [(ngModel)]="playType" (ngModelChange)="changeType($event)" interface="popover">
-            <ion-option value="0" selected>RTMP直播</ion-option>
-            <ion-option value="1">FLV直播</ion-option>
-            <ion-option value="2">FLV点播</ion-option>
-            <ion-option value="3">HLS点播</ion-option>
-            <ion-option value="4">MP4点播</ion-option>
-            <ion-option value="5">低延迟RTMP直播</ion-option>
-            <ion-option value="6">本地视频</ion-option>
-          </ion-select>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>测试地址</ion-label>
-          <ion-input type="text" [(ngModel)]="url"></ion-input>
-        </ion-item>
-      </ion-list>
-    
-      <div padding style="margin-top: -20px">
-        <button ion-button block (tap)="goToPlayerPage()">开始播放</button>
-      </div>
-
-
       <!--col-3 col-md-4 col-xl-3 -->
         <ion-grid >
             <ion-row>
