@@ -8,7 +8,7 @@ import { DatabaseProvider } from '../../providers/database/database';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 import { Toast } from '@ionic-native/toast';
 
-
+declare var window: any;
 
 
 @Component({
