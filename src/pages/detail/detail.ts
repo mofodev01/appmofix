@@ -17,7 +17,19 @@ import { Toast } from '@ionic-native/toast';
 })
 export class DetailPage {
  
-  playType: string;
+  playType: string = "RTMP";
+  urls: string[] = [
+    'rtmp://live.hkstv.hk.lxdns.com/live/hks',
+    'http://fms.cntv.lxdns.com/live/flv/channel179.flv',
+    '',
+    'http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8',
+    'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
+    'rtmp://live.hkstv.hk.lxdns.com/live/hks',
+    'file://'
+  ];
+  url: string;
+  //----------------------------
+
   
   title:any;
   categorie:any;
@@ -50,8 +62,20 @@ placeholder = "https://image.prntscr.com/image/40007xNYQNKMcy68bEChwQ.png";
       this.categorie = this.navParams.get('categorie');
       this.title = this.navParams.get('title'); 
       
+     
 
   }
+
+  goToPlayerPage(media) {
+    if (media) {
+      let modal = this.modal.create('player', {
+        url: media,
+        playType: this.playType
+      });
+      modal.present();
+    }
+  }
+
 
   ionViewDidLoad() {
     /**-----------------test user and cat-------------------- */
@@ -187,16 +211,5 @@ startVideo(url) {
               refresher.complete();
              }, 2000);
          }
-
-  goToPlayerPage(urls: string) {
-    if (urls) {
-      let modal = this.modal.create('player', {
-        url: urls,
-        playType: this.playType
-      });
-      modal.present();
-    }
-  }
-
 
 }
