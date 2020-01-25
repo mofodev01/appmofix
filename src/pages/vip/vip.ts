@@ -125,7 +125,7 @@ startVideo(url) {
                 name: String,
                 group: String){
               
-           /*
+           /**/
               this.database.Createfavorate( id, title, Url, name,logo,group )
               .then( (data) => {
                 console.log(data);
@@ -140,19 +140,19 @@ startVideo(url) {
                   console.log(toast);
                 }
               );
-*/
+
 
             }
             
             GetAllUser(){
-              /*
+              /**/
               this.database.GetAllfavorates().then((data: any) => {
                 console.log(data);
                 this.ListUser = data;
               }, (error) => {
                 console.log(error);
               })
-              */
+              
             }
             
             DeleteUser(idfavorate){

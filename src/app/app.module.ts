@@ -48,7 +48,7 @@ import { Toast } from '@ionic-native/toast';
 import { HttpClientModule } from '@angular/common/http';
 import { DatabaseProvider } from '../providers/database/database';
 import { IonicStorageModule } from '@ionic/storage';
-//import { SQLitePorter } from '@ionic-native/sqlite-porter';
+import { SQLitePorter } from '@ionic-native/sqlite-porter';
 //import { SQLite } from '@ionic-native/sqlite';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Market } from '@ionic-native/market';
@@ -78,7 +78,7 @@ import { RecoveryPasswordPage } from '../pages/recovery-password/recovery-passwo
 //import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { SafariViewController } from '@ionic-native/safari-view-controller';
-//import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 @NgModule({
   declarations: [
     MyApp,
@@ -105,7 +105,7 @@ import { SafariViewController } from '@ionic-native/safari-view-controller';
   VipPage,
   KidMoviesPage,
   TvSeriesPage,
-
+ 
   ContactPage,
   DownloadPage,
   AndroidAppPage,
@@ -154,7 +154,7 @@ import { SafariViewController } from '@ionic-native/safari-view-controller';
     VipPage,
     KidMoviesPage,
     TvSeriesPage,
-   
+  
     ContactPage,
     DownloadPage,
     AndroidAppPage,
@@ -168,7 +168,7 @@ import { SafariViewController } from '@ionic-native/safari-view-controller';
     SplashScreen,
     StreamingMedia,
     
-    //SQLitePorter,
+    SQLitePorter,
    // SQLite,
     Toast,
     SocialSharing,
@@ -193,7 +193,7 @@ import { SafariViewController } from '@ionic-native/safari-view-controller';
     Network,
    
     SafariViewController,
-    //ScreenOrientation,
+    ScreenOrientation,
      
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     JsonDataProvider,

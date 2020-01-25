@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 
 import 'rxjs/add/operator/map';
 
-//import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
 
 
@@ -17,14 +17,14 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DatabaseProvider {
 
-  //private db: SQLiteObject;
+ private db: SQLiteObject;
   private isOpen: boolean;
 
   constructor(
     public http: HttpClient,
-    //public storage: SQLite
+    public storage: SQLite
   ) {
-    /*
+    /**/
     if (!this.isOpen) {
       this.storage = new SQLite();
       this.storage.create({ name: "data.db", location: "default" }).then((db: SQLiteObject) => {
@@ -35,11 +35,11 @@ export class DatabaseProvider {
         console.log(error);
       })
     }
-    */
+    
   }
 
   Createfavorate(id: Number, tvtitle:String, tvmedia:String, tvname: String , tvlogo : String,tvgroup:String){
-    /*
+    /* */
     return new Promise ((resolve, reject) => {
       let sql = "INSERT INTO favorate (id, tvtitle, tvmedia,tvname,tvlogo,tvgroup) VALUES (?, ?, ?, ?, ?, ?)";
       this.db.executeSql(sql, [id, tvtitle, tvmedia,tvname,tvlogo,tvgroup]).then((data) =>{
@@ -48,11 +48,11 @@ export class DatabaseProvider {
         reject(error);
       });
     });
-    */
+   
   }
 
   GetAllfavorates(){
-    /*
+    /**/
     return new Promise ((resolve, reject) => {
       this.db.executeSql("SELECT * FROM favorate", []).then((data) => {
         let arrayUsers = [];
@@ -73,14 +73,14 @@ export class DatabaseProvider {
         reject(error);
       })
     })
-    */
+    
   }
 
   Deletefavorate(favorates: any){
-/*
+/* */
       let sql = 'DELETE FROM favorate WHERE id=?';
       return this.db.executeSql(sql, [favorates.id]);
-   */
+  
   }
 
 }

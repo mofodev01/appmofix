@@ -70,7 +70,7 @@ export class FavoratePage {
 
 
 GetAllUser(){
-  /*
+  /**/
 
  ///-------------------------------
  let loading = this.loadingCtrl.create({
@@ -88,12 +88,12 @@ loading.present();
     console.log(error);
     loading.dismiss();
   })
-*/
+
 }
 
 
 Deletefavorate(id : any, index){
-  /*
+  /**/
   this.database.Deletefavorate(id)
   .then(response => {
     console.log( response );
@@ -102,7 +102,7 @@ Deletefavorate(id : any, index){
   .catch( error => {
     console.error( error );
   })
-  */
+  
 }
 
 
