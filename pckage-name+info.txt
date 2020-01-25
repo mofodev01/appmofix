@@ -29,3 +29,9 @@
 "cordova-ios": "^5.1.0",
 
 
+<plugin name="cordova-plugin-youtube-video-player" spec="^2.3.0" />
+ "@ionic-native/youtube-video-player": "^4.20.0",
+ "cordova-plugin-youtube-video-player": "^2.3.0",
+ "cordova-plugin-youtube-video-player": {},
+
+

@@ -19,7 +19,7 @@ import { Toast } from '@ionic-native/toast';
 import { SafariViewController } from '@ionic-native/safari-view-controller';
 import { Market } from '@ionic-native/market';
 import { ProfilePage } from "../profile/profile";
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+//import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 //"ionic-angular": "3.9.2",
 
 @Component({
@@ -71,7 +71,7 @@ public scrollAmount = 0;
    // ,public MyApp: MyApp
     ,private clipboard: Clipboard
     ,private toast: Toast
-    ,private youtube: YoutubeVideoPlayer
+    //,private youtube: YoutubeVideoPlayer
     ) {
       this.menuCtrl.enable(true);
       this.index = "home";
@@ -79,7 +79,7 @@ public scrollAmount = 0;
   }
 
   launch_video(){
-    this.youtube.openVideo('EftrjtviJA8');
+    //this.youtube.openVideo('EftrjtviJA8');
   }
 
   ngAfterViewInit() {this.content.resize();}

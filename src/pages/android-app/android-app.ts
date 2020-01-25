@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {  NavController, NavParams ,Platform } from 'ionic-angular';
 import { LoadingController, App , AlertController,MenuController } from 'ionic-angular';
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+//import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 
 
@@ -19,54 +19,54 @@ export class AndroidAppPage {
     , public appCtrl: App 
     , public alertCtrl: AlertController
     ,public menuCtrl:MenuController
-    ,private youtube: YoutubeVideoPlayer
+    //,private youtube: YoutubeVideoPlayer
    
   ) {
     this.index = "home";
   }
 
   youtube_video_tuto_vlc(){
-    this.youtube.openVideo('xaa8WpdRfGI');
+   // this.youtube.openVideo('xaa8WpdRfGI');
   }
   youtube_video_android_IPTV(){
-    this.youtube.openVideo('AH_4sr4jYlA');
+    //this.youtube.openVideo('AH_4sr4jYlA');
   }
   youtube_video_Smart_tv(){
-    this.youtube.openVideo('HmGA2yDN_60');
+   // this.youtube.openVideo('HmGA2yDN_60');
   }
 
   youtube_video_Apple_TV(){
-    this.youtube.openVideo('8MeTqaDh-8c');
+   // this.youtube.openVideo('8MeTqaDh-8c');
   }
   youtube_video_kodi_Apple_TV(){
-    this.youtube.openVideo('aZuM8Apw7O0');
+   // this.youtube.openVideo('aZuM8Apw7O0');
   }
   youtube_video_IPTV_with_KODI(){
-    this.youtube.openVideo('YdcntOQscSw');
+    //this.youtube.openVideo('YdcntOQscSw');
   }
   youtube_video_STB_Emulator(){
-    this.youtube.openVideo('OAlOBEcFQfI');
+   // this.youtube.openVideo('OAlOBEcFQfI');
   }
   youtube_video_PVR_IPTV(){
-    this.youtube.openVideo('YdcntOQscSw');
+    //this.youtube.openVideo('YdcntOQscSw');
   }
   youtube_video_Mag_Box(){
-    this.youtube.openVideo('x1Yq88ikVpg');
+    //this.youtube.openVideo('x1Yq88ikVpg');
   }
   youtube_video_Enigma2(){
-    this.youtube.openVideo('1hnoyi7XpIE');
+   // this.youtube.openVideo('1hnoyi7XpIE');
   }
   youtube_video_FireTV(){
-    this.youtube.openVideo('vSZf9uPlcvo');
+    //this.youtube.openVideo('vSZf9uPlcvo');
   }
   youtube_video_Openbox_V8S(){
-    this.youtube.openVideo('aUwIWr78-Vk');
+   // this.youtube.openVideo('aUwIWr78-Vk');
   }
   youtube_video_Dreamlink_T1(){
-    this.youtube.openVideo('-9Yiks7Lrls');
+    //this.youtube.openVideo('-9Yiks7Lrls');
   }
   youtube_video_ROKU(){
-    this.youtube.openVideo('9ljruetFa3w');
+   // this.youtube.openVideo('9ljruetFa3w');
   }
 
 }
