@@ -54,10 +54,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { DatabaseProvider } from '../providers/database/database';
 import { IonicStorageModule } from '@ionic/storage';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
-import { SQLite } from '@ionic-native/sqlite';
+//import { SQLite } from '@ionic-native/sqlite';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Market } from '@ionic-native/market';
-//import { AdMobFree } from '@ionic-native/admob-free';
+
 
 import { PayPal } from '@ionic-native/paypal';
 import { Geolocation } from  '@ionic-native/geolocation';
@@ -184,7 +184,7 @@ DetailFreeLivePage ,
     StreamingMedia,
     
     SQLitePorter,
-    SQLite,
+   // SQLite,
     Toast,
     SocialSharing,
     Market,
@@ -209,11 +209,11 @@ DetailFreeLivePage ,
    
     SafariViewController,
     ScreenOrientation,
-    //Braintree, 
+     
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     JsonDataProvider,
     DatabaseProvider
-   //, AdMobFree
+   
   ]
 })
 export class AppModule {}
