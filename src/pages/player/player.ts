@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
+//import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { StatusBar } from '@ionic-native/status-bar';
 
 declare var window: any;
@@ -36,7 +36,7 @@ export class PlayerPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private viewCtrl: ViewController,
-    private screenOrientation: ScreenOrientation,
+    //private screenOrientation: ScreenOrientation,
     private ref: ChangeDetectorRef,
     private statusBar: StatusBar
   ) {
@@ -69,25 +69,22 @@ export class PlayerPage {
 
   // 开始播放
   start() {
+    /*
     console.log('[CLiteAV] 准备播放...');
     try {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE).then(() => {
         window.CLiteAV.startPlay({
           url: this.url,
           playType: this.playType,
-          playMode: 0 // 横屏模式
+          playMode: 0 
+          
         }, (msgSuccess) => {
           console.log(msgSuccess);
           console.log('[CLiteAV WEB] 播放成功');
           
-          // 横屏时
           this.statusBar.hide();
 
-          // 竖屏时，按默认16:9的视频尺寸设置播放器高度，宽度为100%
-          // this.statusBar.show();
-          // this.statusBar.overlaysWebView(false);
-          // this.statusBar.styleLightContent();
-          // this.statusBar.backgroundColorByName('black');
+          
         }, (msgError) => {
           console.log(msgError);
           console.log('[CLiteAV WEB] 播放失败');
@@ -100,6 +97,7 @@ export class PlayerPage {
     } catch(e) {
       console.log(e);
     }
+    */
   }
 
   // 停止播放
@@ -124,6 +122,7 @@ export class PlayerPage {
 
   // 退出播放
   close() {
+    /*
     try {
       this.statusBar.show();
       this.statusBar.overlaysWebView(true);
@@ -139,10 +138,12 @@ export class PlayerPage {
     } catch(e) {
       console.log(e);
     }
+    */
   }
 
   // 横竖屏切换
   changePlayMode() {
+    /*
     try {
       if (this.playMode == 1) {
         this.playMode = 0;
@@ -166,6 +167,7 @@ export class PlayerPage {
     } catch(e) {
       console.log(e);
     }
+    */
   }
 
   // 连麦

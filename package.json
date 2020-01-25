@@ -41,7 +41,7 @@
         "@ionic-native/onesignal": "^4.20.0",
         "@ionic-native/paypal": "^4.20.0",
         "@ionic-native/safari-view-controller": "^4.20.0",
-        "@ionic-native/screen-orientation": "^4.20.0",
+        
         "@ionic-native/sms": "^4.20.0",
         "@ionic-native/social-sharing": "^4.12.2",
         "@ionic-native/splash-screen": "~4.10.0",
@@ -69,7 +69,7 @@
         "cordova-plugin-nuance-speechkit": "^2.0.1",
         "cordova-plugin-request-location-accuracy": "^2.2.3",
         "cordova-plugin-safariviewcontroller": "^1.6.0",
-        "cordova-plugin-screen-orientation": "^3.0.2",
+        
         "cordova-plugin-splashscreen": "^5.0.2",
         "cordova-plugin-streaming-media": "^2.1.2",
         "cordova-plugin-tencent-liteav": "^0.3.1",
@@ -125,7 +125,7 @@
             "cordova-plugin-network-information": {},
             "cordova-plugin-safariviewcontroller": {},
             "cordova-plugin-ionic-webview": {},
-            "cordova-plugin-screen-orientation": {},
+            
             "cordova-plugin-tencent-liteav": {}
         },
         "platforms": []

@@ -78,7 +78,7 @@ import { RecoveryPasswordPage } from '../pages/recovery-password/recovery-passwo
 //import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { SafariViewController } from '@ionic-native/safari-view-controller';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
+//import { ScreenOrientation } from '@ionic-native/screen-orientation';
 @NgModule({
   declarations: [
     MyApp,
@@ -193,7 +193,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     Network,
    
     SafariViewController,
-    ScreenOrientation,
+    //ScreenOrientation,
      
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     JsonDataProvider,
