@@ -20,12 +20,7 @@ import { SettingPage } from '../pages/setting/setting';
 import { DetailPage } from '../pages/detail/detail'
 import { DetailfilmsPage } from '../pages/detailfilms/detailfilms'
 
-import { FreeLivePage } from '../pages/free-live/free-live'
-import { FreeFilmsPage } from '../pages/free-films/free-films'
-import { ListeServeLivePage } from '../pages/liste-serve-live/liste-serve-live'
-import { ListeServerFilmsPage } from '../pages/liste-server-films/liste-server-films'
-import { DetailFreeFilmsPage } from '../pages/detail-free-films/detail-free-films'
-import { DetailFreeLivePage } from '../pages/detail-free-live/detail-free-live'
+
 import { InfoPage } from '../pages/info/info'
 
 import { DownloadPage } from '../pages/download/download';
@@ -53,7 +48,7 @@ import { Toast } from '@ionic-native/toast';
 import { HttpClientModule } from '@angular/common/http';
 import { DatabaseProvider } from '../providers/database/database';
 import { IonicStorageModule } from '@ionic/storage';
-import { SQLitePorter } from '@ionic-native/sqlite-porter';
+//import { SQLitePorter } from '@ionic-native/sqlite-porter';
 //import { SQLite } from '@ionic-native/sqlite';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Market } from '@ionic-native/market';
@@ -110,12 +105,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
   VipPage,
   KidMoviesPage,
   TvSeriesPage,
-  FreeLivePage ,
-FreeFilmsPage ,
-ListeServeLivePage ,
-ListeServerFilmsPage ,
-DetailFreeFilmsPage ,
-DetailFreeLivePage ,
+
   ContactPage,
   DownloadPage,
   AndroidAppPage,
@@ -164,12 +154,7 @@ DetailFreeLivePage ,
     VipPage,
     KidMoviesPage,
     TvSeriesPage,
-    FreeLivePage ,
-FreeFilmsPage ,
-ListeServeLivePage ,
-ListeServerFilmsPage ,
-DetailFreeFilmsPage ,
-DetailFreeLivePage ,
+   
     ContactPage,
     DownloadPage,
     AndroidAppPage,
@@ -183,7 +168,7 @@ DetailFreeLivePage ,
     SplashScreen,
     StreamingMedia,
     
-    SQLitePorter,
+    //SQLitePorter,
    // SQLite,
     Toast,
     SocialSharing,
