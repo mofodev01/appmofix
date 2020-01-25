@@ -14,7 +14,8 @@
     "config": {
         "ionic_bundler": "webpack",
         "ionic_generate_source_map": false,
-        "ionic_source_map_type": "source-map"
+        "ionic_source_map_type": "source-map",
+        "WKWebViewOnly": "true"
     },
     "dependencies": {
         "@angular/animations": "^5.2.11",
