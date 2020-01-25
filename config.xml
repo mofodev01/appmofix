@@ -22,7 +22,7 @@
     <preference name="loadUrlTimeoutValue" value="60000" />
     <preference name="YouTubeDataApiKey" value="AIzaSyCSllJn0jW7kf9zIpWyPbORJ1WQ3yBGzXM" />
     <preference name="android-targetSdkVersion" value="28" />
-    <preference name="WKWebViewOnly" value="true" />
+    
     <platform name="android">
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
             <application android:usesCleartextTraffic="true" />
@@ -48,6 +48,34 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+
+<preference name="deployment-target" value="10.0" />
+
+    <feature name="CDVWKWebViewEngine">
+      <param name="ios-package" value="CDVWKWebViewEngine" />
+</feature>
+<preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+<preference name="WKWebViewOnly" value="true" />
+
+    <feature name="LocalStorage">
+        <param name="ios-package" value="CDVLocalStorage" />
+    </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="HandleOpenUrl">
+        <param name="ios-package" value="CDVHandleOpenURL" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="IntentAndNavigationFilter">
+        <param name="ios-package" value="CDVIntentAndNavigationFilter" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="GestureHandler">
+        <param name="ios-package" value="CDVGestureHandler" />
+        <param name="onload" value="true" />
+    </feature>
         
         <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
             <string>need location access to find things nearby</string>
