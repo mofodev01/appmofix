@@ -47,15 +47,12 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
-
-      <preference name="WKWebViewOnly" value="true" />
-
+        <preference name="WKWebViewOnly" value="true" />
         <preference name="deployment-target" value="10.0" />
         <feature name="CDVWKWebViewEngine">
             <param name="ios-package" value="CDVWKWebViewEngine" />
         </feature>
         <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
-        
         <feature name="LocalStorage">
             <param name="ios-package" value="CDVLocalStorage" />
         </feature>
@@ -142,5 +139,5 @@
     <plugin name="cordova-plugin-screen-orientation" spec="^3.0.2" />
     <plugin name="cordova-plugin-tencent-liteav" spec="^0.3.1" />
     <plugin name="cordova-sqlite-storage" spec="^4.0.0" />
-    <engine name="ios" spec="~5.1.1" />
+    <engine name="ios" spec="^5.1.1" />
 </widget>

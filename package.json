@@ -14,8 +14,7 @@
     "config": {
         "ionic_bundler": "webpack",
         "ionic_generate_source_map": false,
-        "ionic_source_map_type": "source-map",
-        "WKWebViewOnly": "true"
+        "ionic_source_map_type": "source-map"
     },
     "dependencies": {
         "@angular/animations": "^5.2.11",
@@ -100,7 +99,6 @@
     },
     "description": "An Ionic project",
     "cordova": {
-        "WKWebViewOnly": "true",
         "plugins": {
             "cordova-plugin-whitelist": {},
             "cordova-plugin-device": {},
@@ -132,6 +130,8 @@
             "cordova-plugin-tencent-liteav": {},
             "cordova-sqlite-storage": {}
         },
-        "platforms": []
+        "platforms": [
+            "ios"
+        ]
     }
 }
