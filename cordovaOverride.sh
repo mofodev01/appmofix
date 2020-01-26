@@ -9,5 +9,5 @@ npm install -g cordova@8.1.2
 echo "In Appflow...using cordova-ios@5.1.1"
 npm i cordova-ios@5.1.1
 echo "cordova prepare ios"
-cordova prepare ios
+ionic cordova prepare ios
 fi
