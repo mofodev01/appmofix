@@ -43,7 +43,7 @@ import { AndroidAppPage } from '../pages/android-app/android-app'
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { PrivacyTermsPage } from '../pages/privacy-terms/privacy-terms'
 import { Network } from '@ionic-native/network';
-
+import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
 
 @Component({
   templateUrl: 'app.html'
@@ -55,7 +55,7 @@ export class MyApp {
   data:any;
   items:any;
   data_storage:any;
-  
+  getValue:any;
 
   @ViewChild(Nav) nav: Nav;
 
@@ -75,7 +75,8 @@ export class MyApp {
     public alertCtrl: AlertController ,
     ///private admobFree: AdMobFree,
     private storage: Storage,
-    private locationAccuracy: LocationAccuracy) {
+    private locationAccuracy: LocationAccuracy
+    ,private secureStorage: SecureStorage) {
     this.initializeApp();
    /// this.showBanner();
     this.localisation();
@@ -244,6 +245,32 @@ export class MyApp {
      
     });
 
+    if (this.platform.is('ios')) {
+      ///-----------------secure-------------------------
+      this.secureStorage.create('session_storage')
+      .then((storage: SecureStorageObject) => {
+        storage.get('key')
+       .then(
+        data => {
+          this.getValue = data;
+          if(this.getValue == null){
+            this.rootPage=LoginPage;
+          }else{
+            this.rootPage=ProfilEnPage;
+          }
+
+        },
+        error => {
+          console.log(error)
+        }
+            );
+
+    
+      
+    });
+    ///--------------------/secure----------------------
+    }else{
+
     this.storage.get('session_storage').then((res)=> {
       if(res == null){
         this.rootPage=LoginPage;
@@ -251,6 +278,7 @@ export class MyApp {
         this.rootPage=ProfilEnPage;
       }
     });
+    }
   }
 
   openPage(page) {

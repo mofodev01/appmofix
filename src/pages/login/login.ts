@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams , AlertController,MenuController} from 'ionic-angular';
+import { NavController, NavParams , Platform, AlertController,MenuController} from 'ionic-angular';
 
 import { RegisterPage } from '../register/register';
 //import { ProfilePage } from '../profile/profile'; 
@@ -11,7 +11,7 @@ import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
 import { RecoveryPasswordPage } from '../recovery-password/recovery-password'
-
+import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -26,6 +26,8 @@ items:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http:  HttpClient
    ,  public alertCtrl: AlertController, public loading: LoadingController,public storage: Storage
    ,public menuCtrl:MenuController
+   ,private secureStorage: SecureStorage
+   ,public platform: Platform
     ) {
       this.menuCtrl.enable(false)
   }
@@ -140,17 +142,26 @@ signUp(){
     console.log(res)
      loader.dismiss()
     if(res=="Your Login success"){
-     /*
-      let alert = this.alertCtrl.create({
-        title:"CONGRATS",
-        subTitle:(res),
-        buttons: ['OK']
-        });
-       
-        alert.present();*/
+      if (this.platform.is('ios')) {
+        ///-----------------secure-------------------------
+        this.secureStorage.create('session_storage')
+        .then((storage: SecureStorageObject) => {
+          storage.set('key', 'value')
+          .then(
+           data => console.log(data),
+            error => console.log(error)
+        );
+        this.navCtrl.setRoot(ProfilEnPage);
+      });
+      ///--------------------/secure----------------------
+      }else{
+
        this.storage.set("session_storage",this.username.value);
        this.navCtrl.setRoot(ProfilEnPage);
-       // this.navCtrl.setRoot(ProfilePage);
+     
+      }
+
+
     }else if(res=="Your Password is invalid")
     {
      let alert = this.alertCtrl.create({

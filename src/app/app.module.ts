@@ -49,7 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DatabaseProvider } from '../providers/database/database';
 import { IonicStorageModule } from '@ionic/storage';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
-//import { SQLite } from '@ionic-native/sqlite';
+import { SQLite } from '@ionic-native/sqlite';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Market } from '@ionic-native/market';
 
@@ -79,6 +79,7 @@ import { RecoveryPasswordPage } from '../pages/recovery-password/recovery-passwo
 
 import { SafariViewController } from '@ionic-native/safari-view-controller';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { SecureStorage } from '@ionic-native/secure-storage';
 @NgModule({
   declarations: [
     MyApp,
@@ -169,7 +170,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     StreamingMedia,
     
     SQLitePorter,
-   // SQLite,
+    SQLite,
     Toast,
     SocialSharing,
     Market,
@@ -194,7 +195,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
    
     SafariViewController,
     ScreenOrientation,
-     
+    SecureStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     JsonDataProvider,
     DatabaseProvider
