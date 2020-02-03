@@ -380,10 +380,14 @@ this.nativeStorage.getItem('session_storage')
 
 
     logout(){
+      /*
    this.storage.clear();
    this.storage.remove("session_storage");
    this.appCtrl.getRootNav().setRoot(LoginPage);
-  
+   */
+  this.nativeStorage.clear();
+  this.nativeStorage.remove('session_storage');
+  this.appCtrl.getRootNav().setRoot(LoginPage);
    let alert = this.alertCtrl.create({
   
      title:"Goodbye",
