@@ -21,7 +21,7 @@ import { Market } from '@ionic-native/market';
 import { ProfilePage } from "../profile/profile";
 //import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 //"ionic-angular": "3.9.2",
-import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
+import { NativeStorage } from '@ionic-native/native-storage';
 @Component({
   selector: 'page-profil-en',
   templateUrl: 'profil-en.html',
@@ -72,7 +72,7 @@ public scrollAmount = 0;
     ,private clipboard: Clipboard
     ,private toast: Toast
     //,private youtube: YoutubeVideoPlayer
-    ,private secureStorage: SecureStorage
+    ,private nativeStorage: NativeStorage
     ) {
       this.menuCtrl.enable(true);
       this.index = "home";
@@ -201,14 +201,12 @@ public scrollAmount = 0;
      this.data_storage=res;
      
      console.log(this.data_storage);
-     */
-    this.secureStorage.create('session_storage')
-    .then((storage: SecureStorageObject) => {
-      storage.get('key')
-     .then(
-      data => {
-        this.data_storage = data;
-      
+  */
+
+ this.nativeStorage.getItem('session_storage')
+ .then((res)=>{
+  this.data_storage=res;
+
 /**----------------------------------------- */
 let httpHeaders = new HttpHeaders({
   'Content-Type' : 'application/json',
@@ -274,7 +272,6 @@ this.http.get('http://space.appmofix.com/api/setting.php')
 
 
 ///-----
-});
 })
 ///-----
 
@@ -287,12 +284,9 @@ this.http.get('http://space.appmofix.com/api/setting.php')
        
        console.log(this.data_storage);
        */
-      this.secureStorage.create('session_storage')
-      .then((storage: SecureStorageObject) => {
-        storage.get('key')
-       .then(
-        data => {
-          this.data_storage = data;
+      this.nativeStorage.getItem('session_storage')
+ .then((res)=>{
+  this.data_storage=res;
   /**----------------------------------------- */
   let httpHeaders = new HttpHeaders({
     'Content-Type' : 'application/json',
@@ -358,8 +352,7 @@ this.http.get('http://space.appmofix.com/api/setting.php')
   
   
   ///-----
-});
-})
+  })
   ///-----
   
       }
@@ -375,41 +368,22 @@ this.http.get('http://space.appmofix.com/api/setting.php')
      this.storage.get("session_storage").then((res)=>{
        this.data_storage=res;
 */
-this.secureStorage.create('session_storage')
-.then((storage: SecureStorageObject) => {
-  storage.get('key')
- .then(
-  data => {
-    this.data_storage = data;
-///-----
+this.nativeStorage.getItem('session_storage')
+ .then((res)=>{
+  this.data_storage=res;
       this.navCtrl.push(SettingPage,{
         username: username,telephone: telephone,email: email,mac_addr: mac_addr
  });
 
-  ///-----
-});
 })
-  ///-----
     }
 
 
     logout(){
-      /*
    this.storage.clear();
    this.storage.remove("session_storage");
    this.appCtrl.getRootNav().setRoot(LoginPage);
-  */
- this.secureStorage.create('session_storage')
-  .then((storage: SecureStorageObject) => {
-
-     storage.remove('key')
-     .then(
-         data => console.log(data),
-         error => console.log(error)
-         
-     );
-         this.appCtrl.getRootNav().setRoot(LoginPage);
-  });
+  
    let alert = this.alertCtrl.create({
   
      title:"Goodbye",
