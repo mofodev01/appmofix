@@ -394,10 +394,22 @@ this.secureStorage.create('session_storage')
 
 
     logout(){
+      /*
    this.storage.clear();
    this.storage.remove("session_storage");
    this.appCtrl.getRootNav().setRoot(LoginPage);
-  
+  */
+ this.secureStorage.create('session_storage')
+  .then((storage: SecureStorageObject) => {
+
+     storage.remove('key')
+     .then(
+         data => console.log(data),
+         error => console.log(error)
+         
+     );
+         this.appCtrl.getRootNav().setRoot(LoginPage);
+  });
    let alert = this.alertCtrl.create({
   
      title:"Goodbye",
