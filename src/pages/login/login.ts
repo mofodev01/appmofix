@@ -147,7 +147,7 @@ signUp(){
        this.navCtrl.setRoot(ProfilEnPage);
       */
 
-     this.nativeStorage.setItem('session_storage', {property: ''+this.username.value+''})
+     this.nativeStorage.setItem('session_storage', {property: 'Garb2020'})
      .then((res) => {
       if(res == null){
         this.rootPage=LoginPage;
