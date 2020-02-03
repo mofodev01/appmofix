@@ -21,7 +21,7 @@ import { Market } from '@ionic-native/market';
 import { ProfilePage } from "../profile/profile";
 //import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 //"ionic-angular": "3.9.2",
-
+import { SecureStorage, SecureStorageObject } from '@ionic-native/secure-storage';
 @Component({
   selector: 'page-profil-en',
   templateUrl: 'profil-en.html',
@@ -72,6 +72,7 @@ public scrollAmount = 0;
     ,private clipboard: Clipboard
     ,private toast: Toast
     //,private youtube: YoutubeVideoPlayer
+    ,private secureStorage: SecureStorage
     ) {
       this.menuCtrl.enable(true);
       this.index = "home";
@@ -195,11 +196,19 @@ public scrollAmount = 0;
   }
 
   ionViewWillEnter(){
-  
+  /*
     this.storage.get("session_storage").then((res)=>{
      this.data_storage=res;
      
      console.log(this.data_storage);
+     */
+    this.secureStorage.create('session_storage')
+    .then((storage: SecureStorageObject) => {
+      storage.get('key')
+     .then(
+      data => {
+        this.data_storage = data;
+      
 /**----------------------------------------- */
 let httpHeaders = new HttpHeaders({
   'Content-Type' : 'application/json',
@@ -265,17 +274,25 @@ this.http.get('http://space.appmofix.com/api/setting.php')
 
 
 ///-----
+});
 })
 ///-----
 
     }
 
     refresh(){
-  
+  /*
       this.storage.get("session_storage").then((res)=>{
        this.data_storage=res;
        
        console.log(this.data_storage);
+       */
+      this.secureStorage.create('session_storage')
+      .then((storage: SecureStorageObject) => {
+        storage.get('key')
+       .then(
+        data => {
+          this.data_storage = data;
   /**----------------------------------------- */
   let httpHeaders = new HttpHeaders({
     'Content-Type' : 'application/json',
@@ -341,7 +358,8 @@ this.http.get('http://space.appmofix.com/api/setting.php')
   
   
   ///-----
-  })
+});
+})
   ///-----
   
       }
@@ -353,14 +371,25 @@ this.http.get('http://space.appmofix.com/api/setting.php')
       mac_addr :String
       
     ){
+      /*
      this.storage.get("session_storage").then((res)=>{
        this.data_storage=res;
-
+*/
+this.secureStorage.create('session_storage')
+.then((storage: SecureStorageObject) => {
+  storage.get('key')
+ .then(
+  data => {
+    this.data_storage = data;
+///-----
       this.navCtrl.push(SettingPage,{
         username: username,telephone: telephone,email: email,mac_addr: mac_addr
  });
 
+  ///-----
+});
 })
+  ///-----
     }
 
 
