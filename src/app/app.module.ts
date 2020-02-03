@@ -79,7 +79,7 @@ import { RecoveryPasswordPage } from '../pages/recovery-password/recovery-passwo
 
 import { SafariViewController } from '@ionic-native/safari-view-controller';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { NativeStorage } from '@ionic-native/native-storage';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -195,7 +195,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
    
     SafariViewController,
     ScreenOrientation,
-    NativeStorage,
+    
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     JsonDataProvider,
     DatabaseProvider

@@ -21,7 +21,7 @@ import { Market } from '@ionic-native/market';
 import { ProfilePage } from "../profile/profile";
 //import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 //"ionic-angular": "3.9.2",
-import { NativeStorage } from '@ionic-native/native-storage';
+
 @Component({
   selector: 'page-profil-en',
   templateUrl: 'profil-en.html',
@@ -72,7 +72,6 @@ public scrollAmount = 0;
     ,private clipboard: Clipboard
     ,private toast: Toast
     //,private youtube: YoutubeVideoPlayer
-    ,private nativeStorage: NativeStorage
     ) {
       this.menuCtrl.enable(true);
       this.index = "home";
@@ -196,17 +195,11 @@ public scrollAmount = 0;
   }
 
   ionViewWillEnter(){
-  /*
+  
     this.storage.get("session_storage").then((res)=>{
      this.data_storage=res;
      
      console.log(this.data_storage);
-  */
-
- this.nativeStorage.getItem('session_storage')
- .then((res)=>{
-  this.data_storage=res;
-
 /**----------------------------------------- */
 let httpHeaders = new HttpHeaders({
   'Content-Type' : 'application/json',
@@ -278,15 +271,11 @@ this.http.get('http://space.appmofix.com/api/setting.php')
     }
 
     refresh(){
-  /*
+  
       this.storage.get("session_storage").then((res)=>{
        this.data_storage=res;
        
        console.log(this.data_storage);
-       */
-      this.nativeStorage.getItem('session_storage')
- .then((res)=>{
-  this.data_storage=res;
   /**----------------------------------------- */
   let httpHeaders = new HttpHeaders({
     'Content-Type' : 'application/json',
@@ -364,13 +353,9 @@ this.http.get('http://space.appmofix.com/api/setting.php')
       mac_addr :String
       
     ){
-      /*
      this.storage.get("session_storage").then((res)=>{
        this.data_storage=res;
-*/
-this.nativeStorage.getItem('session_storage')
- .then((res)=>{
-  this.data_storage=res;
+
       this.navCtrl.push(SettingPage,{
         username: username,telephone: telephone,email: email,mac_addr: mac_addr
  });
@@ -380,14 +365,10 @@ this.nativeStorage.getItem('session_storage')
 
 
     logout(){
-      /*
    this.storage.clear();
    this.storage.remove("session_storage");
    this.appCtrl.getRootNav().setRoot(LoginPage);
-   */
-  this.nativeStorage.clear();
-  this.nativeStorage.remove('session_storage');
-  this.appCtrl.getRootNav().setRoot(LoginPage);
+  
    let alert = this.alertCtrl.create({
   
      title:"Goodbye",

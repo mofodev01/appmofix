@@ -43,7 +43,7 @@ import { AndroidAppPage } from '../pages/android-app/android-app'
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { PrivacyTermsPage } from '../pages/privacy-terms/privacy-terms'
 import { Network } from '@ionic-native/network';
-import { NativeStorage } from '@ionic-native/native-storage';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -75,8 +75,7 @@ export class MyApp {
     public alertCtrl: AlertController ,
     ///private admobFree: AdMobFree,
     private storage: Storage,
-    private locationAccuracy: LocationAccuracy,
-    private nativeStorage: NativeStorage) {
+    private locationAccuracy: LocationAccuracy) {
     this.initializeApp();
    /// this.showBanner();
     this.localisation();
@@ -244,7 +243,7 @@ export class MyApp {
       this.splashScreen.hide();
      
     });
-/*
+
     this.storage.get('session_storage').then((res)=> {
       if(res == null){
         this.rootPage=LoginPage;
@@ -252,20 +251,6 @@ export class MyApp {
         this.rootPage=ProfilEnPage;
       }
     });
-*/
-
-this.nativeStorage.getItem('session_storage')
-  .then((res) => {
-    if(res == null){
-      this.rootPage=LoginPage;
-    }else{
-      this.rootPage=ProfilEnPage;
-    }
-  }
-  );
-
-
-
   }
 
   openPage(page) {

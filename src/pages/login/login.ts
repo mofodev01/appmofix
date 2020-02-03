@@ -11,7 +11,6 @@ import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
 import { RecoveryPasswordPage } from '../recovery-password/recovery-password'
-import { NativeStorage } from '@ionic-native/native-storage';
 
 @Component({
   selector: 'page-login',
@@ -23,11 +22,10 @@ export class LoginPage {
 @ViewChild("password") password;
 data:string;
 items:any;
- rootPage: any = LoginPage;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public http:  HttpClient
    ,  public alertCtrl: AlertController, public loading: LoadingController,public storage: Storage
    ,public menuCtrl:MenuController
-   ,private nativeStorage: NativeStorage
     ) {
       this.menuCtrl.enable(false)
   }
@@ -142,29 +140,17 @@ signUp(){
     console.log(res)
      loader.dismiss()
     if(res=="Your Login success"){
-      /*
+     /*
+      let alert = this.alertCtrl.create({
+        title:"CONGRATS",
+        subTitle:(res),
+        buttons: ['OK']
+        });
+       
+        alert.present();*/
        this.storage.set("session_storage",this.username.value);
        this.navCtrl.setRoot(ProfilEnPage);
-      */
-
-     this.nativeStorage.setItem('session_storage', {property: 'Garb2020'})
-     .then((res) => {
-      if(res == null){
-        this.rootPage=LoginPage;
-        let alert = this.alertCtrl.create({
-          title:"Error",
-          subTitle:"not saved key native storage :"+this.username.value+"" ,
-          buttons: ['OK']
-          });
-         
-          alert.present();
-      }else{
-        this.navCtrl.setRoot(ProfilEnPage);
-      }
-    }
-    );
-     
-
+       // this.navCtrl.setRoot(ProfilePage);
     }else if(res=="Your Password is invalid")
     {
      let alert = this.alertCtrl.create({
