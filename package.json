@@ -37,7 +37,6 @@
         "@ionic-native/location-accuracy": "^4.20.0",
         "@ionic-native/market": "^4.12.2",
         "@ionic-native/native-geocoder": "^4.20.0",
-        "@ionic-native/native-storage": "^4.20.0",
         "@ionic-native/network": "^4.20.0",
         "@ionic-native/onesignal": "^4.20.0",
         "@ionic-native/paypal": "^4.20.0",
@@ -51,11 +50,12 @@
         "@ionic-native/status-bar": "~4.10.0",
         "@ionic-native/streaming-media": "^4.10.0",
         "@ionic-native/toast": "^4.11.0",
+        "@ionic-native/youtube-video-player": "^4.20.0",
         "@ionic/storage": "^2.1.3",
+        "@kassamina/cordova-plugin-ionic-migrate-storage": "^0.3.5",
         "card.io.cordova.mobilesdk": "^2.1.0",
         "com.paypal.cordova.mobilesdk": "^3.5.0",
         "cordova-clipboard": "^1.2.1",
-        "cordova-ios": "^5.1.1",
         "cordova-plugin-add-swift-support": "^1.7.1",
         "cordova-plugin-android-downloadmanager": "^0.5.0",
         "cordova-plugin-device": "^2.0.2",
@@ -67,7 +67,6 @@
         "cordova-plugin-ionic-webview": "^4.1.3",
         "cordova-plugin-market": "^1.2.0",
         "cordova-plugin-nativegeocoder": "^3.1.3",
-        "cordova-plugin-nativestorage": "^2.3.2",
         "cordova-plugin-network-information": "^2.0.1",
         "cordova-plugin-nuance-speechkit": "^2.0.1",
         "cordova-plugin-request-location-accuracy": "^2.2.3",
@@ -131,10 +130,8 @@
             "cordova-plugin-screen-orientation": {},
             "cordova-plugin-tencent-liteav": {},
             "cordova-sqlite-storage": {},
-            "cordova-plugin-nativestorage": {}
+            "cordova-plugin-youtube-video-player": {}
         },
-        "platforms": [
-            "ios"
-        ]
+        "platforms": []
     }
 }

@@ -1,15 +1,21 @@
 
 <div *ngFor="let item of items" >
-    <ion-header *ngIf="item.status == 'Active'">
+
   
+
+    <ion-header *ngIf="item.status == 'Active'">
+
+
+      <ion-navbar ><ion-title >
+        Home
+      </ion-title></ion-navbar>
+     
       <ion-navbar >
         <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
     
-        <ion-title >
-            Home
-          </ion-title>
+        
   
            <ion-buttons end>
               <button ion-button icon-only light (click)="info()">   
@@ -40,7 +46,7 @@
        
     
         <ion-title >
-            Accueil
+          Home
           </ion-title>
   
           <ion-buttons end>
@@ -75,6 +81,9 @@
     
   
     <ion-content >
+      <ion-toolbar no-border-top>
+     
+      </ion-toolbar>
         <ion-toolbar no-border-top>
      
         </ion-toolbar>

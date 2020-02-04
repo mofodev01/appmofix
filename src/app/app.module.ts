@@ -68,7 +68,7 @@ import {
 import {  
   File  
 } from '@ionic-native/file';
-//import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { Clipboard } from '@ionic-native/clipboard';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { PrivacyTermsPage } from '../pages/privacy-terms/privacy-terms';
@@ -187,7 +187,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     FileTransfer,  
     FileTransferObject,  
     File ,
-    //YoutubeVideoPlayer ,
+    YoutubeVideoPlayer ,
     Clipboard ,
     EmailComposer ,
     OneSignal,

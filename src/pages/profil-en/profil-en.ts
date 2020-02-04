@@ -19,7 +19,7 @@ import { Toast } from '@ionic-native/toast';
 import { SafariViewController } from '@ionic-native/safari-view-controller';
 import { Market } from '@ionic-native/market';
 import { ProfilePage } from "../profile/profile";
-//import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 //"ionic-angular": "3.9.2",
 
 @Component({
@@ -71,7 +71,7 @@ public scrollAmount = 0;
    // ,public MyApp: MyApp
     ,private clipboard: Clipboard
     ,private toast: Toast
-    //,private youtube: YoutubeVideoPlayer
+    ,private youtube: YoutubeVideoPlayer
     ) {
       this.menuCtrl.enable(true);
       this.index = "home";
@@ -79,10 +79,10 @@ public scrollAmount = 0;
   }
 
   launch_video(){
-    //this.youtube.openVideo('EftrjtviJA8');
+    this.youtube.openVideo('EftrjtviJA8');
   }
 
-  ngAfterViewInit() {this.content.resize();}
+   ngAfterViewInit() {this.content.resize();}
    /*------------------------------------notification---------------------------------------*/
    notification(){
   
@@ -109,7 +109,14 @@ public scrollAmount = 0;
     
         }
   /**-------------------------------------------fin-notification----------------------------*/
-
+  copyTextPortal(){
+    this.clipboard.copy(this.CopyTextPortal);
+    this.toast.show('copie', '5000', 'center').subscribe(
+      toast => {
+        console.log(toast);
+      }
+    );
+  }
   copyTextUser(){
     this.clipboard.copy(this.CopyTextUser);
     this.toast.show('copy', '5000', 'center').subscribe(
@@ -169,7 +176,20 @@ public scrollAmount = 0;
 
   iptvApp(){
     //http://appmofix.com/assets/img/icon/appmofix-logo-base.svg
+    if (this.platform.is('android')) {
     this.market.open('com.premiumiptv.premiumiptviptv');
+  }else if(this.platform.is('ios')){
+    
+    let alert = this.alertCtrl.create({
+  
+      title:"Note",
+      subTitle:"Sorry, it is not available on the iOS system,Available only on Android",
+      buttons: ['OK']
+      });
+     
+      alert.present();
+   
+    }
     }
 
     gseApp(){
