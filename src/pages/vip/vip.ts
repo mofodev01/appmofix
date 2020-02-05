@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams,Platform,LoadingController,MenuController, ModalController} from 'ionic-angular';
+import { NavController, NavParams,Platform,LoadingController,MenuController, ModalController,AlertController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { JsonDataProvider } from '../../providers/json-data/json-data';
 
@@ -43,10 +43,36 @@ placeholder = "https://image.prntscr.com/image/40007xNYQNKMcy68bEChwQ.png";
     public platform: Platform,private toast: Toast,private streamingMedia: StreamingMedia
     ,public menuCtrl:MenuController
     ,private modal: ModalController
+    ,public alertCtrl: AlertController
     ) {
       this.menuCtrl.enable(true)
       this.playType = '3';
   }
+  
+
+  presentConfirm(urlx) {
+    let alert = this.alertCtrl.create({
+      title: 'Playe',
+      message: 'chose lecture player',
+      buttons: [
+        {
+          text: 'AVplayer',
+          //role: 'cancel',
+          handler: () => {
+            this.startVideo(urlx);
+          }
+        },
+        {
+          text: 'LiteAV',
+          handler: () => {
+            this.goToPlayerPage(urlx);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
 
   goToPlayerPage(media) {
     if (media) {
