@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController ,LoadingController, AlertController} from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -38,7 +38,9 @@ export class PlayerPage {
     private viewCtrl: ViewController,
     private screenOrientation: ScreenOrientation,
     private ref: ChangeDetectorRef,
-    private statusBar: StatusBar
+    private statusBar: StatusBar, 
+    public loadingCtrl: LoadingController,  
+    public alertCtrl: AlertController
   ) {
     this.init();
     this.start();
@@ -72,6 +74,14 @@ export class PlayerPage {
     console.log('[CLiteAV] 准备播放...');
     try {
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE).then(() => {
+       /**----------------------------------------- */
+        let loading = this.loadingCtrl.create({
+          content: 'Wait...'
+        });
+      
+        loading.present();
+    
+       /**----------------------------------------- */
         window.CLiteAV.startPlay({
           url: this.url,
           playType: this.playType,
@@ -79,7 +89,7 @@ export class PlayerPage {
         }, (msgSuccess) => {
           console.log(msgSuccess);
           console.log('[CLiteAV WEB] 播放成功');
-          
+          loading.dismiss();
           // 横屏时
           this.statusBar.hide();
 
@@ -91,6 +101,15 @@ export class PlayerPage {
         }, (msgError) => {
           console.log(msgError);
           console.log('[CLiteAV WEB] 播放失败');
+          let alert = this.alertCtrl.create({
+  
+            title:"Warning",
+            subTitle:"Play failed",
+            buttons: ['OK']
+            });
+           
+            alert.present();
+          loading.dismiss();
         });
       });
 

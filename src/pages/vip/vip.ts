@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams,Platform,LoadingController,MenuController} from 'ionic-angular';
+import { NavController, NavParams,Platform,LoadingController,MenuController, ModalController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { JsonDataProvider } from '../../providers/json-data/json-data';
 
@@ -15,6 +15,11 @@ import { Toast } from '@ionic-native/toast';
   templateUrl: 'vip.html',
 })
 export class VipPage {
+
+  playType: string;
+
+  url: string;
+
   title:any;
   categorie:any;
   countries: any;
@@ -37,8 +42,20 @@ placeholder = "https://image.prntscr.com/image/40007xNYQNKMcy68bEChwQ.png";
     ,public storage: Storage,private database: DatabaseProvider,
     public platform: Platform,private toast: Toast,private streamingMedia: StreamingMedia
     ,public menuCtrl:MenuController
+    ,private modal: ModalController
     ) {
       this.menuCtrl.enable(true)
+      this.playType = '3';
+  }
+
+  goToPlayerPage(media) {
+    if (media) {
+      let modal = this.modal.create('player', {
+        url: media,
+        playType: this.playType
+      });
+      modal.present();
+    }
   }
 
   ionViewDidLoad() {
