@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams,Platform,LoadingController,MenuController} from 'ionic-angular';
+import { NavController, NavParams,Platform,LoadingController,MenuController, ModalController,AlertController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { JsonDataProvider } from '../../providers/json-data/json-data';
 
@@ -14,6 +14,11 @@ import { Toast } from '@ionic-native/toast';
   templateUrl: 'kid-movies.html',
 })
 export class KidMoviesPage {
+
+  playType: string;
+
+  url: string;
+
   title:any;
   categorie:any;
   countries: any;
@@ -36,8 +41,43 @@ placeholder = "https://image.prntscr.com/image/40007xNYQNKMcy68bEChwQ.png";
     ,public storage: Storage,private database: DatabaseProvider,
     public platform: Platform,private toast: Toast,private streamingMedia: StreamingMedia
     ,public menuCtrl:MenuController
+    ,private modal: ModalController
+    ,public alertCtrl: AlertController
     ) {
       this.menuCtrl.enable(true)
+      this.playType = '4';
+  }
+
+  presentConfirm(urlx) {
+    let alert = this.alertCtrl.create({
+      title: 'player',
+      message: 'Choose a video player',
+      buttons: [
+        {
+          text: 'AV Player',
+          //role: 'cancel',
+          handler: () => {
+            this.startVideo(urlx);
+          }
+        },
+        {
+          text: 'LiteAV Player',
+          handler: () => {
+            this.goToPlayerPage(urlx);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+  goToPlayerPage(media) {
+    if (media) {
+      let modal = this.modal.create('player', {
+        url: media,
+        playType: this.playType
+      });
+      modal.present();
+    }
   }
 
   ionViewDidLoad() {

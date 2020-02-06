@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams,Platform,LoadingController,MenuController , ModalController} from 'ionic-angular';
+import { NavController, NavParams,Platform,LoadingController,MenuController , ModalController,AlertController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { JsonDataProvider } from '../../providers/json-data/json-data';
 
@@ -48,6 +48,7 @@ placeholder = "https://image.prntscr.com/image/40007xNYQNKMcy68bEChwQ.png";
     ,
     private modal: ModalController
     ,public menuCtrl:MenuController
+    ,public alertCtrl: AlertController
     ) {
       this.menuCtrl.enable(true)
   
@@ -56,6 +57,29 @@ placeholder = "https://image.prntscr.com/image/40007xNYQNKMcy68bEChwQ.png";
       
       this.playType = '3';
    
+  }
+
+  presentConfirm(urlx) {
+    let alert = this.alertCtrl.create({
+      title: 'player',
+      message: 'Choose a video player',
+      buttons: [
+        {
+          text: 'AV Player',
+          //role: 'cancel',
+          handler: () => {
+            this.startVideo(urlx);
+          }
+        },
+        {
+          text: 'LiteAV Player',
+          handler: () => {
+            this.goToPlayerPage(urlx);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   goToPlayerPage(media) {

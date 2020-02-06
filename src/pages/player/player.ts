@@ -162,6 +162,7 @@ export class PlayerPage {
 
   // 横竖屏切换
   changePlayMode() {
+    /*
     try {
       if (this.playMode == 1) {
         this.playMode = 0;
@@ -185,6 +186,7 @@ export class PlayerPage {
     } catch(e) {
       console.log(e);
     }
+    */
   }
 
   // 连麦

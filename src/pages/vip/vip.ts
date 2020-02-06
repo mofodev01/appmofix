@@ -52,18 +52,18 @@ placeholder = "https://image.prntscr.com/image/40007xNYQNKMcy68bEChwQ.png";
 
   presentConfirm(urlx) {
     let alert = this.alertCtrl.create({
-      title: 'Playe',
-      message: 'chose lecture player',
+      title: 'player',
+      message: 'Choose a video player',
       buttons: [
         {
-          text: 'AVplayer',
+          text: 'AV Player',
           //role: 'cancel',
           handler: () => {
             this.startVideo(urlx);
           }
         },
         {
-          text: 'LiteAV',
+          text: 'LiteAV Player',
           handler: () => {
             this.goToPlayerPage(urlx);
           }

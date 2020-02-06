@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams,LoadingController,MenuController } from 'ionic-angular';
+import { NavController, NavParams,LoadingController,MenuController , ModalController,AlertController} from 'ionic-angular';
 
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 import { JsonDataProvider } from '../../providers/json-data/json-data';
@@ -18,7 +18,9 @@ import { DatabaseProvider } from '../../providers/database/database';
  
 })
 export class FavoratePage {
+  playType: string;
 
+  url: string;
 
  /*
   Url : String;
@@ -38,8 +40,43 @@ export class FavoratePage {
     , public JsonDataProvider: JsonDataProvider,
     private database: DatabaseProvider, public loadingCtrl: LoadingController
     ,public menuCtrl:MenuController
+    ,private modal: ModalController
+    ,public alertCtrl: AlertController
     ) {
       this.menuCtrl.enable(true)
+      this.playType = '3';
+  }
+
+  presentConfirm(urlx) {
+    let alert = this.alertCtrl.create({
+      title: 'player',
+      message: 'Choose a video player',
+      buttons: [
+        {
+          text: 'AV Player',
+          //role: 'cancel',
+          handler: () => {
+            this.startVideo(urlx);
+          }
+        },
+        {
+          text: 'LiteAV Player',
+          handler: () => {
+            this.goToPlayerPage(urlx);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+  goToPlayerPage(media) {
+    if (media) {
+      let modal = this.modal.create('player', {
+        url: media,
+        playType: this.playType
+      });
+      modal.present();
+    }
   }
    
 
