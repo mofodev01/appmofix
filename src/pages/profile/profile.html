@@ -676,6 +676,30 @@
       <button (click)="scrollTo()" ion-fab color="primary"><ion-icon name="arrow-down"></ion-icon></button>
     
   </ion-fab>
+
+ 
+
+
+  <ion-card class="card">
+    <ion-img src="assets/img/gse.png"></ion-img>
+    <ion-card-header>
+      
+      <ion-card-title>PayPal Sample</ion-card-title>
+      <ion-row>
+        <ion-col>
+          Total Payment
+        </ion-col>
+        <ion-col>
+          {{currencyIcon}}{{paymentAmount}}
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content>
+      <div id="paypal-button-container"></div>
+    </ion-card-content>
+  </ion-card>
+
+
   
   </ion-content>
   

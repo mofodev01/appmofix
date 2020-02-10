@@ -27,6 +27,10 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
+
+  paymentAmount: string = '3.33';
+  currency: string = 'USD';
+  currencyIcon: string = '$';
   
   @ViewChild("username") username;
   @ViewChild("amount") amount;
@@ -76,6 +80,40 @@ public scrollAmount = 0;
       this.menuCtrl.enable(true);
       this.index = "home";
       this.notification();
+
+/**************************************************/
+      let _this = this;
+      setTimeout(() => {
+        // Render the PayPal button into #paypal-button-container
+        <any>window['paypal'].Buttons({
+  
+          // Set up the transaction
+          createOrder: function (data, actions) {
+            return actions.order.create({
+              purchase_units: [{
+                amount: {
+                  value: _this.paymentAmount
+                }
+              }]
+            });
+          },
+  
+          // Finalize the transaction
+          onApprove: function (data, actions) {
+            return actions.order.capture()
+              .then(function (details) {
+                console.log(details);
+                // Show a success message to the buyer
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+              })
+              .catch(err => {
+                console.log(err);
+              })
+          }
+        }).render('#paypal-button-container');
+      }, 500)
+  
+/**************************************************/
   }
 
   launch_video(){
