@@ -15,6 +15,8 @@ declare var window: any;
 })
 export class PlayerPage {
 
+  
+
   url: string;
   playType: number;
 
@@ -201,6 +203,48 @@ export class PlayerPage {
   stopMic() {
     this.micLinked = false;
     window.CLiteAV.stopLinkMic();
+  }
+
+
+  showConfirm() {
+    const confirm = this.alertCtrl.create({
+      title: 'Use this lightsaber?',
+      message: '<div class="div">'+
+      '<button  ion-button icon-only clear color="light" (tap)="close()">'+
+        '<ion-icon name="md-close"></ion-icon>'+
+      '</button>'+
+      '<button  ion-button icon-only clear color="light" (tap)="resume()" *ngIf="!playing">'+
+        '<ion-icon name="ios-play"></ion-icon>'+
+      '</button>'+
+      '<button  ion-button icon-only clear color="light" (tap)="pause()" *ngIf="playing">'+
+        '<ion-icon name="ios-pause"></ion-icon>'+
+      '</button>'+
+      '<button  ion-button icon-only clear color="light" (tap)="startMic()" *ngIf="!micLinked">'+
+        '<ion-icon name="ios-mic-off"></ion-icon>'+
+      '</button>'+
+      '<button  ion-button icon-only clear color="light" (tap)="stopMic()" *ngIf="micLinked">'+
+        '<ion-icon name="ios-mic"></ion-icon>'+
+      '</button>'+
+      '<button  ion-button icon-only clear color="light" (tap)="changePlayMode()">'+
+        '<ion-icon name="ios-expand"></ion-icon>'+
+      '</button>'+
+    '</div>',
+      buttons: [
+        {
+          text: 'Disagree',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Agree',
+          handler: () => {
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }
