@@ -208,38 +208,20 @@ export class PlayerPage {
 
   showConfirm() {
     const confirm = this.alertCtrl.create({
-      title: 'Use this lightsaber?',
-      message: '<div class="div">'+
-      '<button  ion-button icon-only clear color="light" (tap)="close()">'+
-        '<ion-icon name="md-close"></ion-icon>'+
-      '</button>'+
-      '<button  ion-button icon-only clear color="light" (tap)="resume()" *ngIf="!playing">'+
-        '<ion-icon name="ios-play"></ion-icon>'+
-      '</button>'+
-      '<button  ion-button icon-only clear color="light" (tap)="pause()" *ngIf="playing">'+
-        '<ion-icon name="ios-pause"></ion-icon>'+
-      '</button>'+
-      '<button  ion-button icon-only clear color="light" (tap)="startMic()" *ngIf="!micLinked">'+
-        '<ion-icon name="ios-mic-off"></ion-icon>'+
-      '</button>'+
-      '<button  ion-button icon-only clear color="light" (tap)="stopMic()" *ngIf="micLinked">'+
-        '<ion-icon name="ios-mic"></ion-icon>'+
-      '</button>'+
-      '<button  ion-button icon-only clear color="light" (tap)="changePlayMode()">'+
-        '<ion-icon name="ios-expand"></ion-icon>'+
-      '</button>'+
-    '</div>',
+      title: 'Do you want to close the video player?',
+      message: '',
       buttons: [
         {
-          text: 'Disagree',
+          text: 'No',
           handler: () => {
-            console.log('Disagree clicked');
+            console.log('No');
           }
         },
         {
-          text: 'Agree',
+          text: 'Yes',
           handler: () => {
-            console.log('Agree clicked');
+            this.close();
+            console.log('Yes');
           }
         }
       ]

@@ -105,8 +105,10 @@ export class MyApp {
   }
 
   push_notification(){
+    //ios id = 493416cb-0143-4de7-8ac7-a485cfaf22a6 ,  228834744241
 
-    this.oneSignal.startInit('2f695949-c542-408c-bea5-7b8221535304', '686818001505');
+    //Android//this.oneSignal.startInit('2f695949-c542-408c-bea5-7b8221535304', '686818001505');
+    this.oneSignal.startInit('493416cb-0143-4de7-8ac7-a485cfaf22a6', '228834744241');
 
     this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
     
@@ -260,7 +262,7 @@ export class MyApp {
   }
 
   rateApp(){
-    this.market.open('com.appmofix.streaming');
+    this.market.open('id1499503476');
     }
 
     shareApp() {
@@ -276,7 +278,7 @@ export class MyApp {
              // cssClass: 'action-red',
               handler: () => {
                
-                  this.socialSharing.shareViaFacebook("", "", "https://play.google.com/store/apps/details?id=com.appmofix.streaming").then(() => {
+        this.socialSharing.shareViaFacebook("", "", "https://apps.apple.com/fr/app/appmofix/id1499503476").then(() => {
                     console.log("shareViaFacebook: Success");
                   }).catch(() => {
                     console.error("shareViaFacebook: failed");
@@ -292,7 +294,7 @@ export class MyApp {
               icon: 'logo-whatsapp',
            
               handler: () => {
-                this.socialSharing.shareViaWhatsApp("", "http://space.appmofix.com/image/icon.png" ,"https://play.google.com/store/apps/details?id=com.appmofix.streaming").then(() => {
+                this.socialSharing.shareViaWhatsApp("", "http://space.appmofix.com/image/icon.png" ,"https://apps.apple.com/fr/app/appmofix/id1499503476").then(() => {
                   console.log("shareViaWhatsApp: Success");
                 }).catch(() => {
                   console.error("shareViaWhatsApp: failed");
@@ -305,7 +307,7 @@ export class MyApp {
               icon: 'logo-twitter',
            
               handler: () => {
-                this.socialSharing.shareViaTwitter("", "http://space.appmofix.com/image/icon.png" ,"https://play.google.com/store/apps/details?id=com.appmofix.streaming").then(() => {
+                this.socialSharing.shareViaTwitter("", "http://space.appmofix.com/image/icon.png" ,"https://apps.apple.com/fr/app/appmofix/id1499503476").then(() => {
                   console.log("shareViatwitter: Success");
                 }).catch(() => {
                   console.error("shareViatwitter: failed");
@@ -318,7 +320,7 @@ export class MyApp {
               icon: 'paper-plane',
             
               handler: () => {
-                this.socialSharing.share("","", "http://space.appmofix.com/image/icon.png" ,"https://play.google.com/store/apps/details?id=com.appmofix.streaming").then(() => {
+                this.socialSharing.share("","", "http://space.appmofix.com/image/icon.png" ,"https://apps.apple.com/fr/app/appmofix/id1499503476").then(() => {
                   console.log("shareViatwitter: Success");
                 }).catch(() => {
                   console.error("shareViatwitter: failed");
