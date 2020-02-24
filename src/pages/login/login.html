@@ -44,6 +44,20 @@
       <ion-input  type="password" class="text-input" name="password" #password></ion-input>
     </ion-item>
 
+    <div class="card" *ngFor="let show_stop of item_input_stop"  >
+      <div *ngIf="show_stop.value == '1'" >
+        <ion-item  class="listcolor">
+          <ion-label floating>
+            link iptv
+          </ion-label>
+          <ion-input  type="text" class="text-input" ></ion-input>
+        </ion-item>
+
+      </div>
+      </div>
+
+
+
     <ion-item  class="listcolor" no-lines>
       
         <a (click)="mot_de_passe_oublie()">  <h3><strong class="text-input"> Forgot your password ?</strong></h3> </a> 

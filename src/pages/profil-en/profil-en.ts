@@ -51,6 +51,7 @@ data_storage:any;
 item_pay_show:any;
 item_free_show:any;
 item_pay_stop:any;
+item_input_stop:any;
 index: string
 
 CopyTextUser:string ;
@@ -288,6 +289,25 @@ this.http.get('http://space.appmofix.com/api/setting.php')
 })
 ///-----
 
+let httpHeaders = new HttpHeaders({
+  'Content-Type' : 'application/json',
+  'Cache-Control': 'no-cache'
+     });    
+     let options = {
+  headers: httpHeaders
+     };
+
+  
+this.http.get('http://space.appmofix.com/api/hide.php')
+
+   .subscribe(res => {
+   
+   
+   this.item_input_stop=res;
+   
+   console.log(this.item_input_stop);
+   });
+
     }
 
     refresh(){
@@ -363,6 +383,25 @@ this.http.get('http://space.appmofix.com/api/setting.php')
   ///-----
   })
   ///-----
+
+  let httpHeaders = new HttpHeaders({
+    'Content-Type' : 'application/json',
+    'Cache-Control': 'no-cache'
+       });    
+       let options = {
+    headers: httpHeaders
+       };
+  
+    
+  this.http.get('http://space.appmofix.com/api/hide.php')
+  
+     .subscribe(res => {
+     
+     
+     this.item_input_stop=res;
+     
+     console.log(this.item_input_stop);
+     });
   
       }
    
@@ -587,9 +626,13 @@ this.http.get('http://space.appmofix.com/api/setting.php')
          /* */
       }
 
-      /*-------------------------------------------3-month------30-----EUR------3 Month------------------------------*/
-      payement_3_Month(){
+   
 
+      /*--------------------------------1-month---------------------------------*/
+      payement_1_Month_test(){
+
+         
+        /**/
         this.payPal.init({
           PayPalEnvironmentProduction: 'AVRQ7igUT9AjJgnzCapuKNc_s3pHhCNXoOiNAPeLg7hwFsn2dtBg2P_App179qm_nAm1mON5R5AUxn08',
           PayPalEnvironmentSandbox: ''
@@ -598,8 +641,9 @@ this.http.get('http://space.appmofix.com/api/setting.php')
           this.payPal.prepareToRender('PayPalEnvironmentProduction', new PayPalConfiguration({
             
           })).then(() => {
-            let payment = new PayPalPayment('30', 'USD', '3 Month', 'sale');
+            let payment = new PayPalPayment('4', 'USD', '1 Month', 'sale');
             this.payPal.renderSinglePaymentUI(payment).then(() => {
+              
               // Successfully paid
               let httpHeaders = new HttpHeaders({
                 'Content-Type' : 'application/json',
@@ -611,8 +655,8 @@ this.http.get('http://space.appmofix.com/api/setting.php')
            
              let data = {
                   username: this.data_storage,
-                  amount: this.amount=30,
-                  duration: this.duration='3 Month',
+                  amount: this.amount=4,
+                  duration: this.duration='1 Month',
                   gateway: this.gateway='paypal'   
                  };
            
@@ -632,7 +676,7 @@ this.http.get('http://space.appmofix.com/api/setting.php')
               
                alert.present();
            
-               
+              
            }else
            {
             let alert = this.alertCtrl.create({
@@ -645,12 +689,12 @@ this.http.get('http://space.appmofix.com/api/setting.php')
              } 
            });
            
-             
+            
             }, () => {
               // Error or render dialog closed without being successful
               
               let alert = this.alertCtrl.create({
-                title:"Error",
+                title:"Erreur",
                 subTitle:"Error or render dialog closed without being successful",
                 buttons: ['OK']
                 });
@@ -661,7 +705,7 @@ this.http.get('http://space.appmofix.com/api/setting.php')
             // Error in configuration
             
             let alert = this.alertCtrl.create({
-              title:"Error",
+              title:"Erreur",
               subTitle:"Error in configuration",
               buttons: ['OK']
               });
@@ -679,195 +723,10 @@ this.http.get('http://space.appmofix.com/api/setting.php')
            
             alert.present();
         });
-      
+         /* */
       }
-      /*---------------------------------------6-month----60---EUR----6 Month------sale--------------------------*/
-      payement_6_Month(){
-
-        this.payPal.init({
-          PayPalEnvironmentProduction: 'AVRQ7igUT9AjJgnzCapuKNc_s3pHhCNXoOiNAPeLg7hwFsn2dtBg2P_App179qm_nAm1mON5R5AUxn08',
-          PayPalEnvironmentSandbox: ''
-        }).then(() => {
-         
-          this.payPal.prepareToRender('PayPalEnvironmentProduction', new PayPalConfiguration({
-            
-          })).then(() => {
-            let payment = new PayPalPayment('50', 'USD', '6 Month', 'sale');
-            this.payPal.renderSinglePaymentUI(payment).then(() => {
-              // Successfully paid
-              let httpHeaders = new HttpHeaders({
-                'Content-Type' : 'application/json',
-                'Cache-Control': 'no-cache'
-                   });    
-                   let options = {
-                headers: httpHeaders
-                   };
-           
-             let data = {
-                  username: this.data_storage,
-                  amount: this.amount=50,
-                  duration: this.duration='6 Month',
-                  gateway: this.gateway='paypal'   
-                 };
-           
-           
-            
-           this.http.post('http://space.appmofix.com/api/paid.php',data, options)
-           .map(res => res.toString())
-           .subscribe(res => {
-           
-            
-           if(res=="payment successfull"){
-             let alert = this.alertCtrl.create({
-               title:"CONGRATS",
-               subTitle:(res),
-               buttons: ['OK']
-               });
-              
-               alert.present();
-           
-               
-           }else
-           {
-            let alert = this.alertCtrl.create({
-            title:"ERROR",
-            subTitle:(res),
-            buttons: ['OK']
-            });
-           
-            alert.present();
-             } 
-           });
-           
-             
-            }, () => {
-              // Error or render dialog closed without being successful
-              
-              let alert = this.alertCtrl.create({
-                title:"Error",
-                subTitle:"Error or render dialog closed without being successful",
-                buttons: ['OK']
-                });
-               
-                alert.present();
-            });
-          }, () => {
-            // Error in configuration
-            
-            let alert = this.alertCtrl.create({
-              title:"Error",
-              subTitle:"Error in configuration",
-              buttons: ['OK']
-              });
-             
-              alert.present();
-          });
-        }, () => {
-          // Error in initialization, maybe PayPal isn't supported or something else
-         
-          let alert = this.alertCtrl.create({
-            title:"Error",
-            subTitle:"Error in initialization, maybe PayPal isn't supported or something else",
-            buttons: ['OK']
-            });
-           
-            alert.present();
-        });
-        
-      }
-      /*---------------------------------1-years---90----EUR-----1 Year------sale---------------------- */
-      payement_1_Years(){
-
-        this.payPal.init({
-          PayPalEnvironmentProduction: 'AVRQ7igUT9AjJgnzCapuKNc_s3pHhCNXoOiNAPeLg7hwFsn2dtBg2P_App179qm_nAm1mON5R5AUxn08',
-          PayPalEnvironmentSandbox: ''
-        }).then(() => {
-         
-          this.payPal.prepareToRender('PayPalEnvironmentProduction', new PayPalConfiguration({
-            
-          })).then(() => {
-            let payment = new PayPalPayment('80', 'USD', '1 Year', 'sale');
-            this.payPal.renderSinglePaymentUI(payment).then(() => {
-              // Successfully paid
-              let httpHeaders = new HttpHeaders({
-                'Content-Type' : 'application/json',
-                'Cache-Control': 'no-cache'
-                   });    
-                   let options = {
-                headers: httpHeaders
-                   };
-           
-             let data = {
-                  username: this.data_storage,
-                  amount: this.amount=80,
-                  duration: this.duration='1 Year',
-                  gateway: this.gateway='paypal'   
-                 };
-           
-           
-            
-           this.http.post('http://space.appmofix.com/api/paid.php',data, options)
-           .map(res => res.toString())
-           .subscribe(res => {
-           
-            
-           if(res=="payment successfull"){
-             let alert = this.alertCtrl.create({
-               title:"CONGRATS",
-               subTitle:(res),
-               buttons: ['OK']
-               });
-              
-               alert.present();
-           
-           }else
-           {
-            let alert = this.alertCtrl.create({
-            title:"ERROR",
-            subTitle:(res),
-            buttons: ['OK']
-            });
-           
-            alert.present();
-             } 
-           });
-           
-             
-            }, () => {
-              // Error or render dialog closed without being successful
-              
-              let alert = this.alertCtrl.create({
-                title:"Error",
-                subTitle:"Error or render dialog closed without being successful",
-                buttons: ['OK']
-                });
-               
-                alert.present();
-            });
-          }, () => {
-            // Error in configuration
-            
-            let alert = this.alertCtrl.create({
-              title:"Error",
-              subTitle:"Error in configuration",
-              buttons: ['OK']
-              });
-             
-              alert.present();
-          });
-        }, () => {
-          // Error in initialization, maybe PayPal isn't supported or something else
-         
-          let alert = this.alertCtrl.create({
-            title:"Error",
-            subTitle:"Error in initialization, maybe PayPal isn't supported or something else",
-            buttons: ['OK']
-            });
-           
-            alert.present();
-        });
-
-      }
+   
+     
 
 
 }

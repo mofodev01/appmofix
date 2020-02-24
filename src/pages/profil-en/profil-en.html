@@ -538,9 +538,110 @@
       
         </div><!--fin-ngif-show-pay-->
         </div><!--fin-ngfor-show-pay-->
+
+    
+
+
+  <!-------------------------------------------------------------------------------------------------->
+<!---------------------------------------test-ios----------------------------------------------------->
+<div *ngFor="let show_stop of item_input_stop">
+  <div *ngIf="show_stop.value == '1'">
+<ion-card >
+ 
+  <ion-card-content>
+      <ion-card-title  class="text-card" text-center style="background-color: #b71540;">
+          <strong> Free</strong>
+      </ion-card-title>
+    <ion-card-title text-center class="text-card">
+       <strong style="color:rgb(250, 32, 3);">0 $</strong> 
+    </ion-card-title>
+      <p class="text-card"> Free Updates</p>
+      <p class="text-card"> HD & SD Channels</p>
+      <p class="text-card"> Support All Devices</p>
+      <p class="text-card"> Premium support</p>
+      <p class="text-card">  99.9% Uptime</p>
+     
+    
+  </ion-card-content>
+
+  <div *ngFor="let item of items">
+
+  <ion-row class="sign-in-button-container" *ngIf="item.status != 'New'">
+      <ion-col text-center >
+        <button ion-button block round color="primary" [disabled]="true" (click)="confirm_free()" >      
+            FREE TRAILER
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="sign-in-button-container" *ngIf="item.status == 'New'">
+        <ion-col text-center >
+          <button ion-button block round color="primary" [disabled]="false" (click)="confirm_free()" >      
+              FREE TRAILER 
+          </button>
+        </ion-col>
+      </ion-row>
+
+      
+
+  
+</div>
+</ion-card>
+</div><!--fin-ngif-show-pay-->
+</div><!--fin-ngfor-show-pay-->
+    <!-------------------------------------------------------------------------------------------------->
+    <div *ngFor="let show_stop of item_input_stop">
+      <div *ngIf="show_stop.value == '1'">
+  
+   
+
+    <ion-card >
+
+      <ion-card-content>
+          <ion-card-title  class="text-card" text-center style="background-color: #b71540;">
+              <strong> 1 MONTH</strong>
+          </ion-card-title>
+        <ion-card-title text-center class="text-card">
+           <strong style="color:rgb(250, 32, 3);">4 $</strong> 
+        </ion-card-title>
+       
+        <p class="text-card"> Free Updates</p>
+        <p class="text-card"> HD & SD Channels</p>
+        <p class="text-card"> Support All Devices</p>
+        <p class="text-card"> Premium support</p>
+        <p class="text-card">  99.9% Uptime</p>
+            
+        
+      </ion-card-content>
+  
+      
+  
+      <ion-row class="sign-in-button-container" >
+          <ion-col text-center >
+          <button ion-button block round color="primary" (click)="payement_1_Month_test">
+              Paypal
+            </button>   
+         
+          </ion-col>
+        </ion-row>
+  
+  </ion-card>
+
+    </div><!--fin-ngif-show-pay-->
+    </div><!--fin-ngfor-show-pay-->
+
+
+
+<!-------------------------------------------------------------------------------------------------->
+
+  <!-------------------------/-test-ios--------------------------------------------------------->
+  
+ 
+  <!-------------------------------------------------------------------------------------------------->
           
         </ion-list>
-    
+        <div *ngFor="let show_stop of item_input_stop">
+          <div *ngIf="show_stop.value != '1'">
             <!-------------------------------------------------------------------------------------------------->
             <div class="card" *ngFor="let show_stop of item_pay_stop"  >
               <div *ngIf="show_stop.pay_stop == 'enable'" >
@@ -571,6 +672,9 @@
     
             </div><!--fin-ngif-show-stop-->
           </div><!--fin-ngfor-show-stop-->
+
+        </div><!--fin-ngif-show-stop-test-ios-->
+      </div><!--fin-ngfor-show-stop-test-ios-->
     
         <ion-list *ngSwitchCase="'whatisiptv'">
     

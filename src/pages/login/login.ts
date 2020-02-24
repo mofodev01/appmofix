@@ -22,6 +22,7 @@ export class LoginPage {
 @ViewChild("password") password;
 data:string;
 items:any;
+item_input_stop:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http:  HttpClient
    ,  public alertCtrl: AlertController, public loading: LoadingController,public storage: Storage
@@ -176,5 +177,34 @@ signUp(){
      }
     
     }
+
+
+
+
+    ionViewWillEnter(){
+  
+     
+  let httpHeaders = new HttpHeaders({
+    'Content-Type' : 'application/json',
+    'Cache-Control': 'no-cache'
+       });    
+       let options = {
+    headers: httpHeaders
+       };
+
+    
+  this.http.get('http://space.appmofix.com/api/hide.php')
+  
+     .subscribe(res => {
+     
+     
+     this.item_input_stop=res;
+     
+     console.log(this.item_input_stop);
+     });
+  
+
+  
+      }
 
 }
