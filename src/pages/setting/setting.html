@@ -8,11 +8,13 @@
 
     <ion-navbar>
       <ion-title>Setting</ion-title>
+      <!--
       <ion-buttons start >
            <button ion-button icon only (click)="Register()">
                 <ion-icon name="checkmark"></ion-icon>
            </button>
       </ion-buttons>
+      -->
     </ion-navbar>
   
   </ion-header>
@@ -68,9 +70,12 @@
       </ion-label>
       <ion-input type="password" class="text-input"  name="confirm_password" #confirm_password></ion-input>
  </ion-item>
-      
-        
-      
+
+<ion-item  class="listcolor">     
+ <button ion-button block round color="primary" (click)="Register()">      
+  Save
+ </button>  
+</ion-item>      
          
       
         

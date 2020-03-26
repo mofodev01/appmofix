@@ -51,12 +51,14 @@
         "@ionic-native/streaming-media": "^4.10.0",
         "@ionic-native/toast": "^4.11.0",
         "@ionic-native/youtube-video-player": "^4.20.0",
+        "@ionic-native/launch-review": "^4.20.0",
         "@ionic/storage": "^2.1.3",
         "card.io.cordova.mobilesdk": "^2.1.0",
         "com.paypal.cordova.mobilesdk": "^3.5.0",
         "cordova-android": "^8.0.0",
         "cordova-clipboard": "^1.2.1",
-        "cordova-ios": "^6.0.0-nightly.2020.2.12.59d0dd71",
+        "cordova-launch-review": "^3.1.1",
+        
         "cordova-plugin-add-swift-support": "^1.7.1",
         "cordova-plugin-android-downloadmanager": "^0.5.0",
         "cordova-plugin-device": "^2.0.2",
@@ -132,7 +134,8 @@
             "cordova-plugin-screen-orientation": {},
             "cordova-plugin-tencent-liteav": {},
             "cordova-sqlite-storage": {},
-            "cordova-plugin-youtube-video-player": {}
+            "cordova-plugin-youtube-video-player": {},
+            "cordova-launch-review": {}
         },
         "platforms": [
             "android"
