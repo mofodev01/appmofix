@@ -79,7 +79,7 @@ import { RecoveryPasswordPage } from '../pages/recovery-password/recovery-passwo
 
 import { SafariViewController } from '@ionic-native/safari-view-controller';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { LaunchReview } from '@ionic-native/launch-review';
+//import { LaunchReview } from '@ionic-native/launch-review';
 @NgModule({
   declarations: [
     MyApp,
@@ -192,7 +192,7 @@ import { LaunchReview } from '@ionic-native/launch-review';
     EmailComposer ,
     //OneSignal,
     Network,
-    LaunchReview,
+    //LaunchReview,
     SafariViewController,
     ScreenOrientation,
     

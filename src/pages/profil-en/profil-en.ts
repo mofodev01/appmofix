@@ -82,10 +82,12 @@ public scrollAmount = 0;
   }
 
   rate(){
+    /*
     if(this.launchReview.isRatingSupported()){
       this.launchReview.rating()
         .then(() => console.log('Successfully launched rating dialog'));
     }
+    */
   }
 
   launch_video(){

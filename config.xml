@@ -116,6 +116,6 @@
     <plugin name="cordova-plugin-tencent-liteav" spec="^0.3.1" />
     <plugin name="cordova-sqlite-storage" spec="^4.0.0" />
     <plugin name="cordova-plugin-youtube-video-player" spec="^2.3.0" />
-    <plugin name="cordova-launch-review" spec="^3.1.1" />
+    
     <engine name="android" spec="^8.0.0" />
 </widget>
