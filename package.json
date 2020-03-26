@@ -57,8 +57,8 @@
         "com.paypal.cordova.mobilesdk": "^3.5.0",
         "cordova-android": "^8.0.0",
         "cordova-clipboard": "^1.2.1",
-       
-        
+
+        "cordova-plugin-add-swift-support": "^2.0.2",
         
         "cordova-plugin-android-downloadmanager": "^0.5.0",
         "cordova-plugin-device": "^2.0.2",
