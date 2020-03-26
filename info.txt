@@ -7,3 +7,5 @@
  "onesignal-cordova-plugin": "2.8.4",
 
  "onesignal-cordova-plugin": {},
+
+ "cordova-plugin-add-swift-support": "^1.7.1",
