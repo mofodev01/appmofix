@@ -1,1 +1,9 @@
 "cordova-ios": "^6.0.0-nightly.2020.2.12.59d0dd71",
+
+<plugin name="onesignal-cordova-plugin" spec="2.8.4" />
+
+"@ionic-native/onesignal": "^4.20.0",
+
+ "onesignal-cordova-plugin": "2.8.4",
+
+ "onesignal-cordova-plugin": {},

@@ -38,7 +38,7 @@
         "@ionic-native/market": "^4.12.2",
         "@ionic-native/native-geocoder": "^4.20.0",
         "@ionic-native/network": "^4.20.0",
-        "@ionic-native/onesignal": "^4.20.0",
+        
         "@ionic-native/paypal": "^4.20.0",
         "@ionic-native/safari-view-controller": "^4.20.0",
         "@ionic-native/screen-orientation": "^4.20.0",
@@ -89,7 +89,7 @@
         "ionic-img-viewer": "^2.9.0",
         "ionic3-image-cache": "^0.1.4",
         "ionicons": "3.0.0",
-        "onesignal-cordova-plugin": "2.8.4",
+       
         "q": "^1.5.1",
         "rxjs": "5.5.11",
         "sw-toolbox": "3.6.0",
@@ -127,7 +127,7 @@
             "cordova-plugin-email-composer": {
                 "ANDROID_SUPPORT_V4_VERSION": "27.+"
             },
-            "onesignal-cordova-plugin": {},
+            
             "cordova-plugin-network-information": {},
             "cordova-plugin-safariviewcontroller": {},
             "cordova-plugin-ionic-webview": {},
