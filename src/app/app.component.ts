@@ -43,7 +43,7 @@ import { AndroidAppPage } from '../pages/android-app/android-app'
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { PrivacyTermsPage } from '../pages/privacy-terms/privacy-terms'
 import { Network } from '@ionic-native/network';
-
+import { Firebase } from '@ionic-native/firebase';
 
 @Component({
   templateUrl: 'app.html'
@@ -67,6 +67,7 @@ export class MyApp {
   pages: Array<{title: string , icon: string , component: any}>;
 
   constructor(private network: Network/*,private oneSignal: OneSignal*/ ,  public http:  HttpClient , 
+    private firebase: Firebase,
     public platform: Platform, 
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen,private market: Market,
@@ -250,7 +251,19 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-     
+//-------------------------------------------
+      this.initPushNotifications(); 
+      this.firebase.onNotificationOpen()
+          .subscribe(pushData => {        
+ 
+let alert = this.alertCtrl.create({
+          title: 'Appmofix Iptv',
+          subTitle: pushData.body,
+          buttons: ['Dismiss']
+        });
+        alert.present();
+      });
+//-------------------------------------------     
     });
 
     this.storage.get('session_storage').then((res)=> {
@@ -261,6 +274,18 @@ export class MyApp {
       }
     });
   }
+
+  initPushNotifications() {
+    this.firebase.getToken()
+     .then(token => {
+        // save the token server-side and use it to push 
+        // notifications to this device
+       console.log(`The token is ${token}`);
+     })
+     .catch(error => {
+       console.error('Error getting token', error);
+     });
+ }
 
   openPage(page) {
     // Reset the content nav to have just this page
