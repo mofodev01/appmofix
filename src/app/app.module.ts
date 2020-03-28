@@ -59,7 +59,7 @@ import { Geolocation } from  '@ionic-native/geolocation';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { LocationAccuracy } from '@ionic-native/location-accuracy';
 import { Device } from '@ionic-native/device';
-//import { OneSignal } from '@ionic-native/onesignal';
+import { OneSignal } from '@ionic-native/onesignal';
 import { Network } from '@ionic-native/network';
 import {  
   FileTransfer,  
@@ -190,7 +190,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     YoutubeVideoPlayer ,
     Clipboard ,
     EmailComposer ,
-    //OneSignal,
+    OneSignal,
     Network,
     //LaunchReview,
     SafariViewController,

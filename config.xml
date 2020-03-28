@@ -118,5 +118,6 @@
     <plugin name="cordova-sqlite-storage" spec="^4.0.0" />
     <plugin name="cordova-plugin-youtube-video-player" spec="^2.3.0" />
     <plugin name="cordova-plugin-add-swift-support" spec="~1.7.1" />
+    <plugin name="onesignal-cordova-plugin" spec="2.8.4" />
     <engine name="android" spec="^8.0.0" />
 </widget>
