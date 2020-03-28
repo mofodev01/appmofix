@@ -48,7 +48,7 @@
     </platform>
     <platform name="ios">
     <preference name="UseSwiftLanguageVersion" value="4.2" />
-       <!-- <preference name="WKWebViewOnly" value="true" />-->
+        <preference name="WKWebViewOnly" value="true" />
         <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
             <string>need location access to find things nearby</string>
         </edit-config>
@@ -119,5 +119,7 @@
     <plugin name="cordova-plugin-youtube-video-player" spec="^2.3.0" />
     <plugin name="cordova-plugin-add-swift-support" spec="~1.7.1" />
     <plugin name="onesignal-cordova-plugin" spec="2.8.4" />
+    <plugin name="cordova-custom-config" spec="^5.1.0" />
+    <plugin name="cordova-launch-review" spec="^3.1.1" />
     <engine name="android" spec="^8.0.0" />
 </widget>

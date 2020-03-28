@@ -21,7 +21,7 @@ import { Market } from '@ionic-native/market';
 import { ProfilePage } from "../profile/profile";
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 //"ionic-angular": "3.9.2",
-//import { LaunchReview } from '@ionic-native/launch-review';
+import { LaunchReview } from '@ionic-native/launch-review';
 @Component({
   selector: 'page-profil-en',
   templateUrl: 'profil-en.html',
@@ -73,7 +73,7 @@ public scrollAmount = 0;
     ,private clipboard: Clipboard
     ,private toast: Toast
     ,private youtube: YoutubeVideoPlayer
-    //,private launchReview: LaunchReview
+    ,private launchReview: LaunchReview
     ) {
       this.menuCtrl.enable(true);
       this.index = "home";
@@ -82,12 +82,12 @@ public scrollAmount = 0;
   }
 
   rate(){
-    /*
+    /**/
     if(this.launchReview.isRatingSupported()){
       this.launchReview.rating()
         .then(() => console.log('Successfully launched rating dialog'));
     }
-    */
+    
   }
 
   launch_video(){
