@@ -31,7 +31,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 //import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 
 import { LocationAccuracy } from '@ionic-native/location-accuracy';
-import { OneSignal } from '@ionic-native/onesignal';
+//import { OneSignal } from '@ionic-native/onesignal';
 
 /*
 import { FreeLivePage } from '../pages/free-live/free-live'
@@ -66,7 +66,7 @@ export class MyApp {
 
   pages: Array<{title: string , icon: string , component: any}>;
 
-  constructor(private network: Network/**/,private oneSignal: OneSignal ,  public http:  HttpClient , 
+  constructor(private network: Network/*,private oneSignal: OneSignal*/ ,  public http:  HttpClient , 
     public platform: Platform, 
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen,private market: Market,
@@ -105,7 +105,7 @@ export class MyApp {
   }
 
   push_notification(){
-    /**/
+    /*
     //ios id = 493416cb-0143-4de7-8ac7-a485cfaf22a6 ,  228834744241
 
     //Android//this.oneSignal.startInit('2f695949-c542-408c-bea5-7b8221535304', '686818001505');
@@ -128,7 +128,7 @@ export class MyApp {
    
     
     this.oneSignal.endInit();
-   
+   */
   }
 
 
