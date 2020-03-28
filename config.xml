@@ -48,7 +48,7 @@
     </platform>
     <platform name="ios">
     <preference name="UseSwiftLanguageVersion" value="4.2" />
-        <preference name="WKWebViewOnly" value="true" />
+       <!-- <preference name="WKWebViewOnly" value="true" />-->
         <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
             <string>need location access to find things nearby</string>
         </edit-config>
