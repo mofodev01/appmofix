@@ -109,8 +109,11 @@ export class MyApp {
     //ios id = 493416cb-0143-4de7-8ac7-a485cfaf22a6 ,  228834744241
 
     //Android//this.oneSignal.startInit('2f695949-c542-408c-bea5-7b8221535304', '686818001505');
-    this.oneSignal.startInit('493416cb-0143-4de7-8ac7-a485cfaf22a6');//, '228834744241'
-
+    let iosSettings = {};
+    iosSettings["kOSSettingsKeyAutoPrompt"] = true; // will not prompt users when start app 1st time
+    iosSettings["kOSSettingsKeyInAppLaunchURL"] = true; // false opens safari with Launch URL
+    this.oneSignal.startInit('493416cb-0143-4de7-8ac7-a485cfaf22a6')//, '228834744241'
+    .iOSSettings(iosSettings);
     this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
     
     this.oneSignal.handleNotificationReceived().subscribe(() => {
@@ -120,6 +123,8 @@ export class MyApp {
     this.oneSignal.handleNotificationOpened().subscribe(() => {
       // do something when a notification is opened
     });
+
+   
     
     this.oneSignal.endInit();
    
