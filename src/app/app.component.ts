@@ -115,10 +115,13 @@ export class MyApp {
     let iosSettings = {};
     iosSettings["kOSSettingsKeyAutoPrompt"] = true; // will not prompt users when start app 1st time
     iosSettings["kOSSettingsKeyInAppLaunchURL"] = true; // false opens safari with Launch URL
-    iosSettings["ios_badgeCount"] = 100; // count badge
+    
     this.oneSignal.startInit('493416cb-0143-4de7-8ac7-a485cfaf22a6')//, '228834744241'
-    .iOSSettings(iosSettings)
-    .OSNotification(iosSettings);
+    .iOSSettings(iosSettings);
+
+    let badge_count = {};
+    badge_count["ios_badgeCount"] = 100; // count badge
+    this.oneSignal.OSNotification(badge_count);
     
     this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
     
