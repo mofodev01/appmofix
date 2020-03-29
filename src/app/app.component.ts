@@ -43,14 +43,14 @@ import { AndroidAppPage } from '../pages/android-app/android-app'
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { PrivacyTermsPage } from '../pages/privacy-terms/privacy-terms'
 import { Network } from '@ionic-native/network';
-import { Firebase } from '@ionic-native/firebase';
+
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
 
-  
+  firebasePlugin;
 
   data:any;
   items:any;
@@ -67,7 +67,7 @@ export class MyApp {
   pages: Array<{title: string , icon: string , component: any}>;
 
   constructor(private network: Network/*,private oneSignal: OneSignal*/ ,  public http:  HttpClient , 
-    private firebase: Firebase,
+    
     public platform: Platform, 
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen,private market: Market,
@@ -85,9 +85,36 @@ export class MyApp {
     this.fetch_message();
     this.network_space();
     // used for an example of ngFor and navigation   SeriesPage
-    this.initPushNotifications();
-
+    
+    platform.ready().then(() => {
+      this.firebasePlugin = (<any>window).FirebasePlugin;
+      this.firebasePlugin.onMessageReceived(this.onMessageReceived.bind(this));
+    });
   }
+
+  getToken() {
+    this.firebasePlugin.getToken(token => {
+      const alert = this.alertCtrl.create({
+        title: 'FCM token',
+        subTitle: token,
+        buttons: ['OK']
+      });
+      alert.present();
+    });
+  }
+
+  onMessageReceived(message){
+    if (message.tap) { console.log(`Notification was tapped in the ${message.tap}`); }
+
+    const alert = this.alertCtrl.create({
+      title: 'Message received',
+      subTitle: JSON.stringify(message),
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+
   network_space(){
     this.network.onDisconnect().subscribe(() => {
       let alert = this.alertCtrl.create({
@@ -263,17 +290,7 @@ export class MyApp {
     });
   }
 
-  initPushNotifications() {
-    this.firebase.getToken()
-    .then(token => console.log(`The token is ${token}`)) // save the token server-side and use it to push notifications to this device
-    .catch(error => console.error('Error getting token', error));
   
-  this.firebase.onNotificationOpen()
-     .subscribe(data => console.log(`User opened a notification ${data}`));
-  
-  this.firebase.onTokenRefresh()
-    .subscribe((token: string) => console.log(`Got a new token ${token}`));
- }
 
   openPage(page) {
     // Reset the content nav to have just this page

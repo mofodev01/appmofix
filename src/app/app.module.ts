@@ -80,7 +80,7 @@ import { RecoveryPasswordPage } from '../pages/recovery-password/recovery-passwo
 import { SafariViewController } from '@ionic-native/safari-view-controller';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LaunchReview } from '@ionic-native/launch-review';
-import { Firebase } from '@ionic-native/firebase';
+
 
 @NgModule({
   declarations: [
@@ -197,7 +197,7 @@ import { Firebase } from '@ionic-native/firebase';
     LaunchReview,
     SafariViewController,
     ScreenOrientation,
-    Firebase,
+    
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     JsonDataProvider,
     DatabaseProvider
