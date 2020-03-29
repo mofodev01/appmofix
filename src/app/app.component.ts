@@ -85,7 +85,7 @@ export class MyApp {
     this.fetch_message();
     this.network_space();
     // used for an example of ngFor and navigation   SeriesPage
-    
+    this.initPushNotifications();
 
   }
   network_space(){
@@ -251,19 +251,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-//-------------------------------------------
-      this.initPushNotifications(); 
-      this.firebase.onNotificationOpen()
-          .subscribe(pushData => {        
- 
-let alert = this.alertCtrl.create({
-          title: 'Appmofix Iptv',
-          subTitle: pushData.body,
-          buttons: ['Dismiss']
-        });
-        alert.present();
-      });
-//-------------------------------------------     
+   
     });
 
     this.storage.get('session_storage').then((res)=> {
@@ -277,14 +265,14 @@ let alert = this.alertCtrl.create({
 
   initPushNotifications() {
     this.firebase.getToken()
-     .then(token => {
-        // save the token server-side and use it to push 
-        // notifications to this device
-       console.log(`The token is ${token}`);
-     })
-     .catch(error => {
-       console.error('Error getting token', error);
-     });
+    .then(token => console.log(`The token is ${token}`)) // save the token server-side and use it to push notifications to this device
+    .catch(error => console.error('Error getting token', error));
+  
+  this.firebase.onNotificationOpen()
+     .subscribe(data => console.log(`User opened a notification ${data}`));
+  
+  this.firebase.onTokenRefresh()
+    .subscribe((token: string) => console.log(`Got a new token ${token}`));
  }
 
   openPage(page) {
