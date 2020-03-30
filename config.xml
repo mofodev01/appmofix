@@ -47,6 +47,16 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+
+
+<feature name="CDVWKWebViewEngine">
+  <param name="ios-package" value="CDVWKWebViewEngine" />
+</feature>
+<preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+
+
+
+
         <preference name="UseSwiftLanguageVersion" value="4.2" />
         <preference name="WKWebViewOnly" value="true" />
         <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
