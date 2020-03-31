@@ -9,7 +9,7 @@ npm install -g cordova@8.1.2
 #echo "In Appflow...using cordova-ios@5.1.1"
 #npm i cordova-ios@5.1.1
 echo "In Appflow...using cordova-ios"
-npm i cordova-ios@6.0.0-nightly.2020.3.30.59b8ac6b
+npm i cordova-ios@6.0.0-nightly.2020.3.31.59b8ac6b
 #echo "In Appflow...using cordova-ios@latest"
 #npm i cordova-ios@latest
 fi
